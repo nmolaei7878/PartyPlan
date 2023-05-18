@@ -11,14 +11,7 @@ const HomePage = () => {
   return (
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
       <Header />
-      {plans.plans.length > 0 && (
-        <div className="flex justify-between items-center mt-2">
-          <div className="">upcoming</div>
-          <button className="bg-gray-800 px-4 py-2 rounded-md capitalize text-sm ">
-            create new
-          </button>
-        </div>
-      )}
+
       {plans.plans.length > 0 ? (
         Array(1)
           .fill(null)

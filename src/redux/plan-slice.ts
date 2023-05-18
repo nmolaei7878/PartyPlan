@@ -9,7 +9,7 @@ type InitialState = {
 };
 const p: Plan = { title: "mamad" };
 const initialState: InitialState = {
-  plans: [],
+  plans: [p],
 };
 
 const planSlice = createSlice({
