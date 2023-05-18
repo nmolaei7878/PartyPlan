@@ -6,18 +6,30 @@ type Plan = {
 
 type InitialState = {
   plans: Array<Plan>;
-  step: string;
+  stteper: number;
 };
 const p: Plan = { title: "mamad" };
 const initialState: InitialState = {
-  plans: [p],
-  step: "ocassion",
+  plans: [],
+  stteper: 12,
 };
 
 const planSlice = createSlice({
   name: "plan",
   initialState,
-  reducers: {},
+  reducers: {
+    addToStteper(state, action) {
+      state.stteper = action.payload;
+    },
+    removeFromStteper(state) {
+      state.stteper -= 12;
+    },
+    resetStteper(state) {
+      state.stteper = 12;
+    },
+  },
 });
 
+export const { addToStteper, removeFromStteper, resetStteper } =
+  planSlice.actions;
 export default planSlice.reducer;

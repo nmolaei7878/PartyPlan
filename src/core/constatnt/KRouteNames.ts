@@ -1,4 +1,4 @@
-const PlanRouteNames = {
+const KPlanRouteNames = {
   Home: "home",
   Occasion: "occasion",
   Guest: "guest",
@@ -9,4 +9,4 @@ const PlanRouteNames = {
   Decorator: "decorator",
   Rent: "rent",
 };
-export default PlanRouteNames;
+export default KPlanRouteNames;

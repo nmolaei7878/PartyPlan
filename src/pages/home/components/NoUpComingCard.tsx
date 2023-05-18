@@ -1,13 +1,18 @@
 import React from "react";
 import Sayl from "../../../assets/icons/sayl.svg";
 import { useNavigate } from "react-router-dom";
+import { resetStteper } from "../../../redux/plan-slice";
+import { useDispatch } from "react-redux";
 
 const NoUpComingCard = () => {
   const navigate = useNavigate();
 
   function goToCreatePlan() {
+    dispatch(resetStteper());
     navigate("/create-plan/occasion");
   }
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">
       <p className="mb-2 text-lg">no upcoming house party</p>

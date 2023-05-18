@@ -5,9 +5,12 @@ import UpComingCard from "./components/UpComingCard";
 import Header from "./components/Header";
 import { useAppSelector } from "../../core/hook/hooks";
 import NoUpComingCard from "./components/NoUpComingCard";
+import { useDispatch } from "react-redux";
+import { resetStteper } from "../../redux/plan-slice";
 
 const HomePage = () => {
   const plans = useAppSelector((state) => state.plan);
+
   return (
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
       <Header />

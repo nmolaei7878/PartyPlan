@@ -1,53 +1,84 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import PlanRouteNames from "../../core/constatnt/RouteNames";
+import KPlanRouteNames from "../../core/constatnt/KRouteNames";
+import BackIcon from "../../assets/icons/back_icon.svg";
+import { useAppSelector } from "../../core/hook/hooks";
+import { useDispatch } from "react-redux";
+import { addToStteper, removeFromStteper } from "../../redux/plan-slice";
 
 const CreatePlan = () => {
   const history = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const plans = useAppSelector((state) => state.plan);
 
   const route = useCallback(() => {
     switch (history.pathname.split("/").at(-1)) {
-      case PlanRouteNames.Occasion:
-        navigate(PlanRouteNames.Guest);
+      case KPlanRouteNames.Occasion:
+        dispatch(addToStteper(24));
+        navigate(KPlanRouteNames.Guest);
         break;
-      case PlanRouteNames.Guest:
-        navigate(PlanRouteNames.Event);
+      case KPlanRouteNames.Guest:
+        dispatch(addToStteper(36));
+        navigate(KPlanRouteNames.Event);
         break;
-      case PlanRouteNames.Event:
-        navigate(PlanRouteNames.Invite);
+      case KPlanRouteNames.Event:
+        dispatch(addToStteper(48));
+        navigate(KPlanRouteNames.Invite);
         break;
-      case PlanRouteNames.Invite:
-        navigate(PlanRouteNames.Food);
+      case KPlanRouteNames.Invite:
+        dispatch(addToStteper(60));
+        navigate(KPlanRouteNames.Food);
         break;
-      case PlanRouteNames.Food:
-        navigate(PlanRouteNames.Alcohol);
+      case KPlanRouteNames.Food:
+        dispatch(addToStteper(72));
+        navigate(KPlanRouteNames.Alcohol);
         break;
-      case PlanRouteNames.Alcohol:
-        navigate(PlanRouteNames.Decorator);
+      case KPlanRouteNames.Alcohol:
+        dispatch(addToStteper(84));
+        navigate(KPlanRouteNames.Decorator);
         break;
-      case PlanRouteNames.Decorator:
-        navigate(PlanRouteNames.Rent);
+      case KPlanRouteNames.Decorator:
+        dispatch(addToStteper(100));
+        navigate(KPlanRouteNames.Rent);
         break;
-      case PlanRouteNames.Rent:
-        navigate("/");
+      case KPlanRouteNames.Rent:
+        navigate("/", { replace: true });
         break;
       default:
-        navigate("/");
+        navigate("/", { replace: true });
         break;
     }
   }, [history.pathname]);
 
+  const goBack = () => {
+    dispatch(removeFromStteper());
+    navigate(-1);
+  };
+
   return (
-    <div className="h-full w-full  flex flex-col justify-between">
-      <div className="h-1/10 bg-blue-500">static</div>
-      <div className=" h-8/10 bg-red-200">
+    <div className="h-full w-full text-white text-lg font-bold flex flex-col justify-between">
+      <div className="h-1/20 ">
+        <div className="flex items-center gap-3  ">
+          <img onClick={goBack} className="w-8" src={BackIcon} alt="" />
+          <p className="text-xl">Create a New Event</p>
+        </div>
+        <div className="w-full bg-gray-600 h-1 mt-3">
+          <div
+            className="bg-blue-300 h-1 mt-3 "
+            style={{
+              width: `${plans.stteper}%`,
+            }}
+          ></div>
+        </div>
+      </div>
+      <div className=" h-8/10 ">
         <Outlet />
       </div>
       <div className="h-1/10 flex items-end w-full">
         <button
           onClick={route}
-          className="h-14 w-full rounded-md bg-blue-400 text-lg font-bold text-white"
+          className="h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white"
         >
           NEXT
         </button>
