@@ -6,6 +6,10 @@ module.exports = {
       flexBasis: {
         nesf: "47%",
       },
+      height: {
+        "1/10": "10%",
+        "8/10": "80%",
+      },
     },
   },
   plugins: [],

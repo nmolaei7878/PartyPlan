@@ -8,7 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   function goToCreatePlan() {
-    navigate("/create-plan");
+    navigate("/create-plan/occasion");
   }
   return (
     <>

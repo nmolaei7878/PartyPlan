@@ -6,7 +6,7 @@ const NoUpComingCard = () => {
   const navigate = useNavigate();
 
   function goToCreatePlan() {
-    navigate("/create-plan");
+    navigate("/create-plan/occasion");
   }
   return (
     <div className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">
