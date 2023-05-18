@@ -8,7 +8,7 @@ interface Props {
 }
 const ListTile: React.FC<Props> = ({ iconPath, title, date, time }) => {
   return (
-    <div className="basis-nesf  bg-gray-800 rounded-md flex flex-col justify-center p-2  gap-2">
+    <div className=" bg-gray-800 rounded-md flex flex-col justify-center p-2  gap-2">
       <div className="">
         <img className="h-8" src={iconPath} alt="" />
       </div>

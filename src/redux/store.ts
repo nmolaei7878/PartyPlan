@@ -1,15 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import planSlice from "./plan-slice";
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+import { persistReducer } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 

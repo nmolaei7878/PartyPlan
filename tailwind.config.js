@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       flexBasis: {
         nesf: "47%",
+        c: "30%",
       },
       height: {
         "1/10": "10%",

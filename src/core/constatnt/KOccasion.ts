@@ -1,12 +1,18 @@
+import birthday from "../../assets/icons/cake.svg";
+import anniversary from "../../assets/icons/heart.svg";
+import dinner from "../../assets/icons/dinner.svg";
+import meetup from "../../assets/icons/meetup.svg";
+import other from "../../assets/icons/other.svg";
+
 type KOcassionType = {
   title: string;
   iconPath: string;
 };
 
 export const KOccasion: Array<KOcassionType> = [
-  { title: "Birthday", iconPath: "../../assets/icons/cake.svg" },
-  { title: "Anniversary", iconPath: "../../assets/icons/heart.svg" },
-  { title: "Dinner", iconPath: "../../assets/icons/dinner.svg" },
-  { title: "Meet Up", iconPath: "../../assets/icons/meetup.svg" },
-  { title: "Other", iconPath: "../../assets/icons/other.svg" },
+  { title: "Birthday", iconPath: birthday },
+  { title: "Anniversary", iconPath: anniversary },
+  { title: "Dinner", iconPath: dinner },
+  { title: "Meet Up", iconPath: meetup },
+  { title: "Other", iconPath: other },
 ];

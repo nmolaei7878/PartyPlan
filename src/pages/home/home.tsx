@@ -25,7 +25,7 @@ const HomePage = () => {
 
       <p className="mt-4">pervious house parties</p>
 
-      <ul className="flex flex-wrap w-full gap-5 h-full mb-20 items-center ">
+      <ul className="grid grid-cols-2 w-full gap-5 h-full mb-20 items-center ">
         {Array(3)
           .fill(null)
           .map((i) => (
