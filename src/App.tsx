@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home/home";
+import BaseLayout from "./components/layout/BaseLayout";
 
 function App() {
   return (
@@ -12,11 +13,13 @@ function App() {
           </div>
         }
       >
-        <Routes>
-          <Route path="/" element={<Navigate replace to={"/home"} />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="*" element={<HomePage />} />
-        </Routes>
+        <BaseLayout>
+          <Routes>
+            <Route path="/" element={<Navigate replace to={"/home"} />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </BaseLayout>
       </Suspense>
     </>
   );
