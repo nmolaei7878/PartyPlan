@@ -12,7 +12,7 @@ const ListTile: React.FC<Props> = ({ iconPath, title, date, time }) => {
       <div className="">
         <img className="h-8" src={iconPath} alt="" />
       </div>
-      <p className="">{title}</p>
+      <p className="text-lg">{title}</p>
       <p className=" font-medium text-sm text-gray-400">14/12/2222</p>
       <p className=" font-medium text-sm text-gray-400">8:00pm</p>
     </div>

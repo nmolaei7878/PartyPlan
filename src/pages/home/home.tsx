@@ -13,7 +13,7 @@ const HomePage = () => {
       <p className="">pervious house parties</p>
 
       <ul className="flex flex-wrap w-full gap-5 h-full mb-20 items-center ">
-        {Array(2)
+        {Array(3)
           .fill(null)
           .map((i) => (
             <ListTile
