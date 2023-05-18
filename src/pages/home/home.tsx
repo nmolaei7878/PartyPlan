@@ -1,12 +1,9 @@
-import React from "react";
 import ListTile from "./components/ListTile";
-import Cacke from "../../assets/icons/cake.svg";
 import UpComingCard from "./components/UpComingCard";
 import Header from "./components/Header";
 import { useAppSelector } from "../../core/hook/hooks";
 import NoUpComingCard from "./components/NoUpComingCard";
-import { useDispatch } from "react-redux";
-import { resetStteper } from "../../redux/plan-slice";
+import { KIcons } from "../../core/constatnt/KIcons";
 
 const HomePage = () => {
   const plans = useAppSelector((state) => state.plan);
@@ -30,7 +27,7 @@ const HomePage = () => {
           .fill(null)
           .map((i) => (
             <ListTile
-              iconPath={Cacke}
+              iconPath={KIcons.birthday}
               date="asdad"
               time="asdasd"
               title="mamad BirthDay"
