@@ -1,27 +1,22 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home/home";
 import BaseLayout from "./components/layout/BaseLayout";
-import CreatePlan from "./pages/plan/CreatePlan";
-import Occasion from "./pages/plan/components/Occasion";
-import Guest from "./pages/plan/components/Guest";
-import EventComp from "./pages/plan/components/EventComp";
-import Invite from "./pages/plan/components/Invite";
-import Food from "./pages/plan/components/Food";
-import Alcohol from "./pages/plan/components/Alcohol";
-import Decorator from "./pages/plan/components/Decorator";
-import Rent from "./pages/plan/components/Rent";
+
+const CreatePlan = lazy(() => import("./pages/plan/CreatePlan"));
+const Occasion = lazy(() => import("./pages/plan/components/Occasion"));
+const Guest = lazy(() => import("./pages/plan/components/Guest"));
+const EventComp = lazy(() => import("./pages/plan/components/EventComp"));
+const Invite = lazy(() => import("./pages/plan/components/Invite"));
+const Food = lazy(() => import("./pages/plan/components/Food"));
+const Alcohol = lazy(() => import("./pages/plan/components/Alcohol"));
+const Decorator = lazy(() => import("./pages/plan/components/Decorator"));
+const Rent = lazy(() => import("./pages/plan/components/Rent"));
 
 function App() {
   return (
     <>
-      <Suspense
-        fallback={
-          <div className="w-screen h-screen bg-red  flex items-center justify-center dark:text-slate-900 text-white text-3xl uppercase">
-            loading
-          </div>
-        }
-      >
+      <Suspense fallback={<div className="w-screen h-screen bg-black "></div>}>
         <BaseLayout>
           <Routes>
             <Route path="/" element={<Navigate replace to={"/home"} />} />
