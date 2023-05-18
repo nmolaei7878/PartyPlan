@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { KOccasion } from "../../../core/constatnt/KOccasion";
 import Tile from "../../home/shared/Tile";
+
 const Occasion = () => {
   const memoizeOcassion = useMemo(() => KOccasion, []);
   return (
