@@ -7,8 +7,6 @@ const CreatePlan = () => {
   const navigate = useNavigate();
 
   const route = useCallback(() => {
-    console.log(history.pathname);
-
     switch (history.pathname.split("/").at(-1)) {
       case PlanRouteNames.Occasion:
         navigate(PlanRouteNames.Guest);
