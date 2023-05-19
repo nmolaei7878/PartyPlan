@@ -52,30 +52,15 @@ const planSlice = createSlice({
       state.newPlan!.guestSize = action.payload;
       // console.log(current(state.newPlan));
     },
-    addToStteper(state, action) {
-      state.stteper = action.payload;
-    },
-    removeFromStteper(state) {
-      state.stteper -= 12;
-    },
-    resetStteper(state) {
-      state.stteper = 12;
-    },
-    NextButton(state, action) {
-      state.next = action.payload;
-      console.log(state.next);
+    updateEvent(state, action) {
+      state.newPlan!.eventName = action.payload.eventName;
+      state.newPlan!.eventDate = action.payload.eventDate;
+      state.newPlan!.eventTime = action.payload.eventTime;
+      state.newPlan!.budget = action.payload.budget;
     },
   },
 });
 
-export const {
-  addToStteper,
-  removeFromStteper,
-  resetStteper,
-  addPlan,
-  updateGuest,
-  resetPlan,
-  updateOccasion,
-  NextButton,
-} = planSlice.actions;
+export const { addPlan, updateGuest, resetPlan, updateEvent, updateOccasion } =
+  planSlice.actions;
 export default planSlice.reducer;

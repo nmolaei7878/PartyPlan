@@ -1,13 +1,9 @@
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { useNavigate } from "react-router-dom";
-import {
-  NextButton,
-  addPlan,
-  resetPlan,
-  resetStteper,
-} from "../../../redux/plan-slice";
+import { addPlan, resetPlan } from "../../../redux/plan-slice";
 import { KIcons } from "../../../core/constatnt/KIcons";
 import { useId } from "react";
+import { NextButton, resetStteper } from "../../../redux/ui-slice";
 
 const Header = () => {
   const plans = useAppSelector((state) => state.plan);

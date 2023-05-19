@@ -2,7 +2,8 @@ import React, { useMemo } from "react";
 import Tile from "../../home/shared/Tile";
 import { KGuest } from "../../../core/constatnt/KGuest";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { NextButton, updateGuest } from "../../../redux/plan-slice";
+import { updateGuest } from "../../../redux/plan-slice";
+import { NextButton } from "../../../redux/ui-slice";
 
 const Guest = () => {
   const memoizeKGuest = useMemo(() => KGuest, []);

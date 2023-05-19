@@ -7,13 +7,14 @@ import {
   NextButton,
   addToStteper,
   removeFromStteper,
-} from "../../redux/plan-slice";
+} from "../../redux/ui-slice";
 
 const CreatePlan = () => {
   const history = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const plans = useAppSelector((state) => state.plan);
+  const ui = useAppSelector((state) => state.ui);
 
   const memoizeId = useMemo(() => {
     if (history.state) {
@@ -82,7 +83,7 @@ const CreatePlan = () => {
           <div
             className="bg-blue-300 h-1 mt-3 "
             style={{
-              width: `${plans.stteper}%`,
+              width: `${ui.stteper}%`,
             }}
           ></div>
         </div>
@@ -92,9 +93,9 @@ const CreatePlan = () => {
       </div>
       <div className="h-1/10 flex items-end w-full">
         <button
-          onClick={plans.next ? route : () => {}}
+          onClick={ui.next ? route : () => {}}
           className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white ${
-            plans.next ? "opacity-100" : "opacity-50"
+            ui.next ? "opacity-100" : "opacity-50"
           }`}
         >
           NEXT

@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { KOccasion } from "../../../core/constatnt/KOccasion";
 import Tile from "../../home/shared/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { NextButton, updateOccasion } from "../../../redux/plan-slice";
-import { useOutletContext } from "react-router-dom";
+import { updateOccasion } from "../../../redux/plan-slice";
+import { NextButton } from "../../../redux/ui-slice";
 
 const Occasion = () => {
   const memoizeOcassion = useMemo(() => KOccasion, []);

@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
+import uiSlice from "./ui-slice";
 
 const persistConfig = {
   key: "root",
@@ -20,6 +21,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   plan: planSlice,
+  ui: uiSlice,
 });
 const persistedReducer = persistReducer(persistConfig, reducer);
 
