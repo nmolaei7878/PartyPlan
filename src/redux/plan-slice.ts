@@ -68,6 +68,7 @@ export const {
   removeFromStteper,
   resetStteper,
   addPlan,
+  updateGuest,
   resetPlan,
   updateOccasion,
 } = planSlice.actions;
