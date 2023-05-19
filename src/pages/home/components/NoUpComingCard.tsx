@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useId } from "react";
 import Sayl from "../../../assets/icons/sayl.svg";
 import { useNavigate } from "react-router-dom";
-import { resetStteper } from "../../../redux/plan-slice";
-import { useDispatch } from "react-redux";
+import { addPlan, resetPlan, resetStteper } from "../../../redux/plan-slice";
+import { useAppDispatch } from "../../../core/hook/hooks";
 
 const NoUpComingCard = () => {
   const navigate = useNavigate();
+  const id = useId();
 
   function goToCreatePlan() {
     dispatch(resetStteper());
-    navigate("/create-plan/occasion");
+    dispatch(resetPlan());
+    dispatch(addPlan({ id: id }));
+    navigate("/create-plan/occasion", { state: { id } });
   }
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">

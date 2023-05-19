@@ -1,18 +1,19 @@
-import { useAppSelector } from "../../../core/hook/hooks";
+import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { useNavigate } from "react-router-dom";
-import { resetStteper } from "../../../redux/plan-slice";
-import { useDispatch } from "react-redux";
+import { addPlan, resetPlan, resetStteper } from "../../../redux/plan-slice";
 import { KIcons } from "../../../core/constatnt/KIcons";
+import { useId } from "react";
 
 const Header = () => {
   const plans = useAppSelector((state) => state.plan);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
+  const id = useId();
   function goToCreatePlan() {
     dispatch(resetStteper());
-
-    navigate("/create-plan/occasion");
+    dispatch(resetPlan());
+    dispatch(addPlan(id));
+    navigate("/create-plan/occasion", { state: { id } });
   }
 
   return (

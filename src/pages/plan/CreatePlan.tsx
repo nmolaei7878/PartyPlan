@@ -1,16 +1,24 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import KPlanRouteNames from "../../core/constatnt/KRouteNames";
 import BackIcon from "../../assets/icons/back_icon.svg";
-import { useAppSelector } from "../../core/hook/hooks";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../core/hook/hooks";
 import { addToStteper, removeFromStteper } from "../../redux/plan-slice";
 
 const CreatePlan = () => {
   const history = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const plans = useAppSelector((state) => state.plan);
+
+  const memoizeId = useMemo(() => {
+    if (history.state) {
+      return history.state.id;
+    } else {
+      history.state = plans.createdID;
+      return plans.createdID;
+    }
+  }, []);
 
   const route = useCallback(() => {
     switch (history.pathname.split("/").at(-1)) {
@@ -73,7 +81,7 @@ const CreatePlan = () => {
         </div>
       </div>
       <div className=" h-8/10 ">
-        <Outlet />
+        <Outlet context={memoizeId} />
       </div>
       <div className="h-1/10 flex items-end w-full">
         <button
