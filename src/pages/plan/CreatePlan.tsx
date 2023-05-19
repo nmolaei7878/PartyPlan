@@ -3,7 +3,11 @@ import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import KPlanRouteNames from "../../core/constatnt/KRouteNames";
 import BackIcon from "../../assets/icons/back_icon.svg";
 import { useAppDispatch, useAppSelector } from "../../core/hook/hooks";
-import { addToStteper, removeFromStteper } from "../../redux/plan-slice";
+import {
+  NextButton,
+  addToStteper,
+  removeFromStteper,
+} from "../../redux/plan-slice";
 
 const CreatePlan = () => {
   const history = useLocation();
@@ -21,6 +25,8 @@ const CreatePlan = () => {
   }, []);
 
   const route = useCallback(() => {
+    dispatch(NextButton(false));
+
     switch (history.pathname.split("/").at(-1)) {
       case KPlanRouteNames.Occasion:
         dispatch(addToStteper(24));
@@ -61,6 +67,7 @@ const CreatePlan = () => {
 
   const goBack = () => {
     dispatch(removeFromStteper());
+    dispatch(NextButton(true));
     navigate(-1);
   };
 
@@ -85,8 +92,10 @@ const CreatePlan = () => {
       </div>
       <div className="h-1/10 flex items-end w-full">
         <button
-          onClick={route}
-          className="h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white"
+          onClick={plans.next ? route : () => {}}
+          className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white ${
+            plans.next ? "opacity-100" : "opacity-50"
+          }`}
         >
           NEXT
         </button>

@@ -5,6 +5,7 @@ type InitialState = {
   stteper: number;
   newPlan: Plan | undefined;
   createdID: string;
+  next: boolean;
 };
 
 const p: Plan | undefined = undefined;
@@ -14,6 +15,7 @@ const initialState: InitialState = {
   newPlan: p,
   createdID: "",
   stteper: 12,
+  next: false,
 };
 
 const planSlice = createSlice({
@@ -22,7 +24,6 @@ const planSlice = createSlice({
   reducers: {
     resetPlan(state) {
       state.newPlan = undefined;
-      console.log(state.newPlan);
       state.createdID = "";
     },
     addPlan(state, action) {
@@ -41,15 +42,15 @@ const planSlice = createSlice({
         occasion: "",
       };
       state.createdID = action.payload.id;
-      console.log(current(state.newPlan));
+      // console.log(current(state.newPlan));
     },
     updateOccasion(state, action) {
       state.newPlan!.occasion = action.payload;
-      console.log(current(state.newPlan));
+      // console.log(current(state.newPlan));
     },
     updateGuest(state, action) {
       state.newPlan!.guestSize = action.payload;
-      console.log(current(state.newPlan));
+      // console.log(current(state.newPlan));
     },
     addToStteper(state, action) {
       state.stteper = action.payload;
@@ -59,6 +60,10 @@ const planSlice = createSlice({
     },
     resetStteper(state) {
       state.stteper = 12;
+    },
+    NextButton(state, action) {
+      state.next = action.payload;
+      console.log(state.next);
     },
   },
 });
@@ -71,5 +76,6 @@ export const {
   updateGuest,
   resetPlan,
   updateOccasion,
+  NextButton,
 } = planSlice.actions;
 export default planSlice.reducer;

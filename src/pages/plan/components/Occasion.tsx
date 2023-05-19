@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { KOccasion } from "../../../core/constatnt/KOccasion";
 import Tile from "../../home/shared/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { updateOccasion } from "../../../redux/plan-slice";
+import { NextButton, updateOccasion } from "../../../redux/plan-slice";
 import { useOutletContext } from "react-router-dom";
 
 const Occasion = () => {
@@ -12,6 +12,7 @@ const Occasion = () => {
 
   const addOccasion = (ocassion: string) => {
     dispatch(updateOccasion(ocassion));
+    dispatch(NextButton(true));
   };
 
   return (

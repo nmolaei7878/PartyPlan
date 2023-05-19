@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import Tile from "../../home/shared/Tile";
 import { KGuest } from "../../../core/constatnt/KGuest";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { updateGuest } from "../../../redux/plan-slice";
+import { NextButton, updateGuest } from "../../../redux/plan-slice";
 
 const Guest = () => {
   const memoizeKGuest = useMemo(() => KGuest, []);
@@ -11,6 +11,7 @@ const Guest = () => {
 
   const addGuestSize = (guest: string) => {
     dispatch(updateGuest(guest));
+    dispatch(NextButton(true));
   };
 
   return (

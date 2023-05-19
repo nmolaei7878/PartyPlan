@@ -1,7 +1,12 @@
 import React, { useId } from "react";
 import Sayl from "../../../assets/icons/sayl.svg";
 import { useNavigate } from "react-router-dom";
-import { addPlan, resetPlan, resetStteper } from "../../../redux/plan-slice";
+import {
+  NextButton,
+  addPlan,
+  resetPlan,
+  resetStteper,
+} from "../../../redux/plan-slice";
 import { useAppDispatch } from "../../../core/hook/hooks";
 
 const NoUpComingCard = () => {
@@ -11,6 +16,7 @@ const NoUpComingCard = () => {
   function goToCreatePlan() {
     dispatch(resetStteper());
     dispatch(resetPlan());
+    dispatch(NextButton(false));
     dispatch(addPlan({ id: id }));
     navigate("/create-plan/occasion", { state: { id } });
   }
