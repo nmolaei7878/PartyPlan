@@ -6,7 +6,7 @@ type Plan = {
   eventDate: string;
   eventTime: string;
   budget: string;
-  eInvite: boolean;
+  eInvite: string;
   foodArrangment: string;
   alcohol: string;
   decorator: string;

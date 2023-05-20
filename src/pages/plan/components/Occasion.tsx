@@ -33,8 +33,8 @@ const Occasion = () => {
                   ? ({
                       backgroundColor: e.bg_color,
                       border: `1px solid ${e.bo_color}`,
-                    } as TileStyle)
-                  : ({} as TileStyle)
+                    } as SelectedStyle)
+                  : ({} as SelectedStyle)
               }
               onClick={addOccasion}
               icon={e.iconPath}

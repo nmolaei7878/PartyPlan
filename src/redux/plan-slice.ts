@@ -7,6 +7,7 @@ type InitialState = {
 };
 
 const p: Plan | undefined = undefined;
+export type PlanKey = keyof typeof p;
 
 const initialState: InitialState = {
   plans: [],
@@ -29,7 +30,7 @@ const planSlice = createSlice({
         boardGame: "",
         budget: "",
         decorator: "",
-        eInvite: false,
+        eInvite: "",
         eventDate: "",
         eventName: "",
         eventTime: "",
@@ -54,9 +55,39 @@ const planSlice = createSlice({
       state.newPlan!.eventTime = action.payload.eventTime;
       state.newPlan!.budget = action.payload.budget;
     },
+    updateInvite(state, action) {
+      state.newPlan!.eInvite = action.payload;
+      // console.log(current(state.newPlan));
+    },
+    updateFood(state, action) {
+      state.newPlan!.foodArrangment = action.payload;
+      // console.log(current(state.newPlan));
+    },
+    updateAlcohol(state, action) {
+      state.newPlan!.alcohol = action.payload;
+      // console.log(current(state.newPlan));
+    },
+    updateDecorator(state, action) {
+      state.newPlan!.decorator = action.payload;
+      // console.log(current(state.newPlan));
+    },
+    updateBoradGame(state, action) {
+      state.newPlan!.boardGame = action.payload;
+      // console.log(current(state.newPlan));
+    },
   },
 });
 
-export const { addPlan, updateGuest, resetPlan, updateEvent, updateOccasion } =
-  planSlice.actions;
+export const {
+  addPlan,
+  updateInvite,
+  updateFood,
+  updateAlcohol,
+  updateDecorator,
+  updateBoradGame,
+  updateGuest,
+  resetPlan,
+  updateEvent,
+  updateOccasion,
+} = planSlice.actions;
 export default planSlice.reducer;

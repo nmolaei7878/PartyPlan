@@ -5,7 +5,7 @@ type TileProps = {
   title: string;
   description?: string;
   height?: string;
-  style?: TileStyle;
+  style?: SelectedStyle;
   onClick: (value: string) => void;
 };
 
@@ -38,4 +38,4 @@ const Tile: React.FC<TileProps> = ({
   );
 };
 
-export default Tile;
+export default React.memo(Tile);

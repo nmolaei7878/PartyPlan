@@ -1,4 +1,4 @@
-type TileStyle = {
+type SelectedStyle = {
   border: string;
   backgroundColor: string;
 };
