@@ -14,8 +14,8 @@ const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    addToStteper(state, action) {
-      state.stteper = action.payload;
+    addToStteper(state) {
+      state.stteper += 12;
     },
     removeFromStteper(state) {
       state.stteper -= 12;

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import Tile from "../../home/shared/Tile";
 import { KGuest } from "../../../core/constatnt/KGuest";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
@@ -10,10 +10,16 @@ const Guest = () => {
   const plan = useAppSelector((state) => state.plan.newPlan);
   const dispatch = useAppDispatch();
 
-  const addGuestSize = (guest: string) => {
+  const addGuestSize = useCallback((guest: string) => {
     dispatch(updateGuest(guest));
     dispatch(NextButton(true));
-  };
+  }, []);
+
+  useEffect(() => {
+    if (plan?.guestSize !== "") {
+      dispatch(NextButton(true));
+    }
+  }, []);
 
   return (
     <>

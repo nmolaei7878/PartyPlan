@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { KOccasion } from "../../../core/constatnt/KOccasion";
 import Tile from "../../home/shared/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
@@ -10,10 +10,16 @@ const Occasion = () => {
   const dispatch = useAppDispatch();
   const plan = useAppSelector((state) => state.plan.newPlan);
 
-  const addOccasion = (ocassion: string) => {
+  const addOccasion = useCallback((ocassion: string) => {
     dispatch(updateOccasion(ocassion));
     dispatch(NextButton(true));
-  };
+  }, []);
+
+  useEffect(() => {
+    if (plan?.occasion !== "") {
+      dispatch(NextButton(true));
+    }
+  }, []);
 
   return (
     <>

@@ -30,36 +30,44 @@ const CreatePlan = () => {
 
     switch (history.pathname.split("/").at(-1)) {
       case KPlanRouteNames.Occasion:
-        dispatch(addToStteper(24));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Guest);
         break;
+
       case KPlanRouteNames.Guest:
-        dispatch(addToStteper(36));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Event);
         break;
+
       case KPlanRouteNames.Event:
-        dispatch(addToStteper(48));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Invite);
         break;
+
       case KPlanRouteNames.Invite:
-        dispatch(addToStteper(60));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Food);
         break;
+
       case KPlanRouteNames.Food:
-        dispatch(addToStteper(72));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Alcohol);
         break;
+
       case KPlanRouteNames.Alcohol:
-        dispatch(addToStteper(84));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Decorator);
         break;
+
       case KPlanRouteNames.Decorator:
-        dispatch(addToStteper(100));
+        dispatch(addToStteper());
         navigate(KPlanRouteNames.Rent);
         break;
+
       case KPlanRouteNames.Rent:
         navigate("/", { replace: true });
         break;
+
       default:
         navigate("/", { replace: true });
         break;
@@ -93,6 +101,7 @@ const CreatePlan = () => {
       </div>
       <div className="h-1/10 flex items-end w-full">
         <button
+          // wrap with useCallBack arrow function
           onClick={ui.next ? route : () => {}}
           className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white ${
             ui.next ? "opacity-100" : "opacity-50"
