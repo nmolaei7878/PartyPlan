@@ -25,42 +25,35 @@ const CreatePlan = () => {
     }
   }, []);
 
-  const route = useCallback(() => {
+  const nextStep = useCallback(() => {
     dispatch(NextButton(false));
-
+    dispatch(addToStteper());
     switch (history.pathname.split("/").at(-1)) {
       case KPlanRouteNames.Occasion:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Guest);
         break;
 
       case KPlanRouteNames.Guest:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Event);
         break;
 
       case KPlanRouteNames.Event:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Invite);
         break;
 
       case KPlanRouteNames.Invite:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Food);
         break;
 
       case KPlanRouteNames.Food:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Alcohol);
         break;
 
       case KPlanRouteNames.Alcohol:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Decorator);
         break;
 
       case KPlanRouteNames.Decorator:
-        dispatch(addToStteper());
         navigate(KPlanRouteNames.Rent);
         break;
 
@@ -102,7 +95,7 @@ const CreatePlan = () => {
       <div className="h-1/10 flex items-end w-full">
         <button
           // wrap with useCallBack arrow function
-          onClick={ui.next ? route : () => {}}
+          onClick={ui.next ? nextStep : () => {}}
           className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white ${
             ui.next ? "opacity-100" : "opacity-50"
           }`}

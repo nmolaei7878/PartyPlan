@@ -2,10 +2,8 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 type InitialState = {
   plans: Array<Plan>;
-  stteper: number;
   newPlan: Plan | undefined;
   createdID: string;
-  next: boolean;
 };
 
 const p: Plan | undefined = undefined;
@@ -14,8 +12,6 @@ const initialState: InitialState = {
   plans: [],
   newPlan: p,
   createdID: "",
-  stteper: 12,
-  next: false,
 };
 
 const planSlice = createSlice({

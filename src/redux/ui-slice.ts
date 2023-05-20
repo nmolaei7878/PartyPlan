@@ -6,7 +6,7 @@ type InitialState = {
 };
 
 const initialState: InitialState = {
-  stteper: 12,
+  stteper: 12.5,
   next: false,
 };
 
@@ -15,13 +15,13 @@ const uiSlice = createSlice({
   initialState,
   reducers: {
     addToStteper(state) {
-      state.stteper += 12;
+      state.stteper += 12.5;
     },
     removeFromStteper(state) {
-      state.stteper -= 12;
+      state.stteper -= 12.5;
     },
     resetStteper(state) {
-      state.stteper = 12;
+      state.stteper = initialState.stteper;
     },
     NextButton(state, action) {
       state.next = action.payload;
