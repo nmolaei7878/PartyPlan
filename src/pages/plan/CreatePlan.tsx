@@ -17,6 +17,16 @@ const CreatePlan = () => {
   const plans = useAppSelector((state) => state.plan);
   const ui = useAppSelector((state) => state.ui);
 
+  useEffect(
+    useCallback(() => {
+      window.onpopstate = () => {
+        dispatch(NextButton(true));
+        dispatch(removeFromStteper());
+      };
+    }, []),
+    [window.onpopstate]
+  );
+
   const memoizeId = useMemo(() => {
     if (history.state) {
       return history.state.id;
@@ -69,11 +79,9 @@ const CreatePlan = () => {
     }
   }, [history.pathname]);
 
-  const goBack = () => {
-    dispatch(removeFromStteper());
-    dispatch(NextButton(true));
+  const goBack = useCallback(() => {
     navigate(-1);
-  };
+  }, []);
 
   const onCLickNext = () => {
     if (ui.next) {
