@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
+import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
+import { NextButton } from "../../../redux/ui-slice";
+import { updateAlcohol } from "../../../redux/plan-slice";
+import QAComponenet from "../../../components/shared-ui/QAComponenet";
+import { KQAAlcohol } from "../../../core/constatnt/KQAAlcohol";
 
 const Alcohol = () => {
-  return <div>Alcohol</div>;
+  const memoizeKQAAlcohol = useMemo(() => KQAAlcohol, []);
+  const dispatch = useAppDispatch();
+  const plan = useAppSelector((state) => state.plan.newPlan);
+
+  const addAlcohol = useCallback((alcohol: string) => {
+    dispatch(updateAlcohol(alcohol));
+    dispatch(NextButton(true));
+  }, []);
+
+  useEffect(() => {
+    if (plan?.alcohol !== "") {
+      dispatch(NextButton(true));
+    }
+  }, []);
+
+  return (
+    <QAComponenet
+      callBack={addAlcohol}
+      data={memoizeKQAAlcohol}
+      keyType="alcohol"
+    />
+  );
 };
 
 export default Alcohol;
