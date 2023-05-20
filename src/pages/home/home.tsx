@@ -13,9 +13,7 @@ const HomePage = () => {
       <Header />
 
       {plans.plans.length > 0 ? (
-        Array(1)
-          .fill(null)
-          .map((i) => <UpComingCard />)
+        plans.plans.map((i) => <UpComingCard />)
       ) : (
         <NoUpComingCard />
       )}

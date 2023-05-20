@@ -8,6 +8,7 @@ import {
   addToStteper,
   removeFromStteper,
 } from "../../redux/ui-slice";
+import { addPlan } from "../../redux/plan-slice";
 
 const CreatePlan = () => {
   const history = useLocation();
@@ -58,6 +59,7 @@ const CreatePlan = () => {
         break;
 
       case KPlanRouteNames.Rent:
+        dispatch(addPlan());
         navigate("/", { replace: true });
         break;
 
@@ -71,6 +73,12 @@ const CreatePlan = () => {
     dispatch(removeFromStteper());
     dispatch(NextButton(true));
     navigate(-1);
+  };
+
+  const onCLickNext = () => {
+    if (ui.next) {
+      nextStep();
+    }
   };
 
   return (
@@ -94,13 +102,12 @@ const CreatePlan = () => {
       </div>
       <div className="h-1/10 flex items-end w-full">
         <button
-          // wrap with useCallBack arrow function
-          onClick={ui.next ? nextStep : () => {}}
-          className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold text-white ${
+          onClick={onCLickNext}
+          className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold uppercase text-white ${
             ui.next ? "opacity-100" : "opacity-50"
           }`}
         >
-          NEXT
+          {ui.stteper === 100 ? "Submit" : "Next"}
         </button>
       </div>
     </div>

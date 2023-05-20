@@ -23,7 +23,7 @@ const planSlice = createSlice({
       state.newPlan = undefined;
       state.createdID = "";
     },
-    addPlan(state, action) {
+    createPlan(state, action) {
       state.newPlan = {
         id: action.payload.id,
         alcohol: "",
@@ -73,11 +73,15 @@ const planSlice = createSlice({
     updateBoradGame(state, action) {
       state.newPlan!.boardGame = action.payload;
     },
+    addPlan(state) {
+      state.plans.push(state.newPlan!);
+      console.log(current(state.plans));
+    },
   },
 });
 
 export const {
-  addPlan,
+  createPlan,
   updateInvite,
   updateFood,
   updateAlcohol,
@@ -90,5 +94,6 @@ export const {
   updateEventTime,
   updateEventbudget,
   updateOccasion,
+  addPlan,
 } = planSlice.actions;
 export default planSlice.reducer;
