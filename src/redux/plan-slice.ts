@@ -39,15 +39,12 @@ const planSlice = createSlice({
         occasion: "",
       };
       state.createdID = action.payload.id;
-      // console.log(current(state.newPlan));
     },
     updateOccasion(state, action) {
       state.newPlan!.occasion = action.payload;
-      // console.log(current(state.newPlan));
     },
     updateGuest(state, action) {
       state.newPlan!.guestSize = action.payload;
-      // console.log(current(state.newPlan));
     },
     updateEventName(state, action) {
       state.newPlan!.eventName = action.payload;
@@ -63,23 +60,18 @@ const planSlice = createSlice({
     },
     updateInvite(state, action) {
       state.newPlan!.eInvite = action.payload;
-      console.log(current(state.newPlan));
     },
     updateFood(state, action) {
       state.newPlan!.foodArrangment = action.payload;
-      // console.log(current(state.newPlan));
     },
     updateAlcohol(state, action) {
       state.newPlan!.alcohol = action.payload;
-      // console.log(current(state.newPlan));
     },
     updateDecorator(state, action) {
       state.newPlan!.decorator = action.payload;
-      // console.log(current(state.newPlan));
     },
     updateBoradGame(state, action) {
       state.newPlan!.boardGame = action.payload;
-      console.log(current(state.newPlan));
     },
   },
 });

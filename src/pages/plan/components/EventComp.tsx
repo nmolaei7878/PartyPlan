@@ -23,32 +23,25 @@ const EventComp = () => {
   const nameChange = useCallback(
     debounce((e: any) => {
       dispatch(updateEventName(e.target.value));
-      console.log(plan?.eventName);
     }, 500),
     [debounce]
   );
 
   const dateChange = useCallback(
     debounce((e: any) => {
-      console.log(plan?.eventDate);
       dispatch(updateEventDate(e.target.value));
-      console.log(plan?.eventDate);
     }, 500),
     [debounce]
   );
   const timeChange = useCallback(
     debounce((e: any) => {
-      console.log(e.target.value);
-
       dispatch(updateEventTime(e.target.value));
-      console.log(plan?.eventTime);
     }, 500),
     [debounce]
   );
   const budgetChange = useCallback(
     debounce((e: any) => {
       dispatch(updateEventbudget(e.target.value));
-      console.log(plan?.budget);
     }, 500),
     [debounce]
   );
@@ -61,8 +54,10 @@ const EventComp = () => {
       plan?.budget !== ""
     ) {
       dispatch(NextButton(true));
+    } else {
+      dispatch(NextButton(false));
     }
-  }, [plan?.budget]);
+  }, [plan?.budget, plan?.eventTime, plan?.eventDate, plan?.eventName]);
 
   return (
     <form className="w-full items-center justify-evenly flex flex-col gap-6 mt-3">
