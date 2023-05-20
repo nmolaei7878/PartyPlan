@@ -5,7 +5,9 @@ interface Props {
 }
 
 const BaseLayout: React.FC<Props> = (props) => {
-  return <div className="bg-black h-screen w-screen p-6">{props.children}</div>;
+  return (
+    <div className="bg-black min-h-screen  w-screen p-6">{props.children}</div>
+  );
 };
 
 export default BaseLayout;

@@ -108,7 +108,7 @@ const CreatePlan = () => {
       <div className=" h-8/10 ">
         <Outlet context={memoizeId} />
       </div>
-      <div className="h-1/10 flex items-end w-full">
+      <div className="h-1/10 flex items-end w-full absolute bottom-5 left-0 px-6">
         <button
           onClick={onCLickNext}
           className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold uppercase text-white ${
