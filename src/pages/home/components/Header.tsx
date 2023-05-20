@@ -5,7 +5,11 @@ import { KIcons } from "../../../core/constatnt/KIcons";
 import { useId } from "react";
 import { NextButton, resetStteper } from "../../../redux/ui-slice";
 
-const Header = () => {
+interface Props {
+  isShow: boolean;
+}
+
+const Header: React.FC<Props> = (props) => {
   const plans = useAppSelector((state) => state.plan);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -36,7 +40,7 @@ const Header = () => {
           />
         </div>
       </header>
-      {plans.plans.length > 0 && (
+      {props.isShow && (
         <div className="flex justify-between items-center mt-2">
           <div className="">upcoming</div>
           <button

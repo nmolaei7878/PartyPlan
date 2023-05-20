@@ -35,9 +35,9 @@ const HomePage = () => {
 
   return (
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
-      <Header />
+      <Header isShow={upComingPlans.length > 0 ? true : false} />
 
-      {plans.plans.length > 0 ? (
+      {upComingPlans.length > 0 ? (
         upComingPlans.map((plan) => <UpComingCard plan={plan} />)
       ) : (
         <NoUpComingCard />
