@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import React, { useCallback, useEffect, useMemo } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import KPlanRouteNames from "../../core/constatnt/KRouteNames";
 import BackIcon from "../../assets/icons/back_icon.svg";
 import { useAppDispatch, useAppSelector } from "../../core/hook/hooks";

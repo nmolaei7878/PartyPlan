@@ -2,7 +2,6 @@ import UpComingCard from "./components/UpComingCard";
 import Header from "./components/Header";
 import { useAppSelector } from "../../core/hook/hooks";
 import NoUpComingCard from "./components/NoUpComingCard";
-import { KIcons } from "../../core/constatnt/KIcons";
 import PervListTile from "./components/PervListTile";
 import { useEffect, useState } from "react";
 
@@ -38,7 +37,7 @@ const HomePage = () => {
       <Header isShow={upComingPlans.length > 0 ? true : false} />
 
       {upComingPlans.length > 0 ? (
-        upComingPlans.map((plan) => <UpComingCard plan={plan} />)
+        upComingPlans.map((plan) => <UpComingCard plan={plan} key={plan.id} />)
       ) : (
         <NoUpComingCard />
       )}
@@ -48,6 +47,7 @@ const HomePage = () => {
       <ul className="grid grid-cols-2 w-full gap-5 h-full mb-20 items-center ">
         {pervPlans.map((plan) => (
           <PervListTile
+            key={plan.id}
             iconPath={plan.occasion}
             date={plan.eventDate}
             time={plan.eventTime}

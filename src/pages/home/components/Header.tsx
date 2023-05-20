@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Header: React.FC<Props> = (props) => {
-  const plans = useAppSelector((state) => state.plan);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const id = useId();

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { NextButton } from "../../../redux/ui-slice";
 import { updateAlcohol } from "../../../redux/plan-slice";

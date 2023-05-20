@@ -23,6 +23,7 @@ const QAComponenet: React.FC<QAComponenetPorps> = ({
       <p>{data.question}</p>
       {data.answers.map((e) => (
         <button
+          key={e}
           // perevent function creation
           onClick={() => {
             callBack(e);

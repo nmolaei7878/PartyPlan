@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { KQAInvite } from "../../../core/constatnt/KQAInvite";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateInvite } from "../../../redux/plan-slice";
