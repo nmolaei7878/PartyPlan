@@ -5,6 +5,7 @@ import meetup from "../../assets/icons/meetup.svg";
 import other from "../../assets/icons/other.svg";
 import alcohol from "../../assets/icons/alcohol.svg";
 import decorator from "../../assets/icons/decorator.svg";
+import gameBoard from "../../assets/icons/board.svg";
 import food from "../../assets/icons/food.svg";
 import invite from "../../assets/icons/invite.svg";
 import medium from "../../assets/icons/large.svg";
@@ -27,5 +28,6 @@ export const KIcons = {
   medium: medium,
   small: small,
   profile: profile,
+  gameBoard: gameBoard,
   profileborder: profileborder,
 };
