@@ -12,6 +12,7 @@ const HomePage = () => {
   const [upComingPlans, setUpComingPlans] = useState(Array<Plan>);
 
   useEffect(() => {
+    //check to posibly wrap with useCallBack
     console.log("runnig");
     let pervv = [];
     let coming = [];
@@ -27,7 +28,10 @@ const HomePage = () => {
         pervv.push(plan);
       }
     }
-
+    console.log(plans.plans);
+    coming.sort(function (a, b) {
+      return new Date(a.eventDate).getDate() - new Date(b.eventDate).getDate();
+    });
     setPervPlans(pervv);
     setUpComingPlans(coming);
   }, [plans.plans]);

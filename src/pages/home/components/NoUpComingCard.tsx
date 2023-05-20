@@ -13,7 +13,7 @@ const NoUpComingCard = () => {
     dispatch(resetStteper());
     dispatch(resetPlan());
     dispatch(NextButton(false));
-    dispatch(createPlan({ id: id }));
+    dispatch(createPlan(id));
     navigate("/create-plan/occasion", { state: { id } });
   }
   const dispatch = useAppDispatch();

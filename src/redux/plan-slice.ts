@@ -25,7 +25,7 @@ const planSlice = createSlice({
     },
     createPlan(state, action) {
       state.newPlan = {
-        id: action.payload.id,
+        id: action.payload,
         alcohol: "",
         boardGame: "",
         budget: "",

@@ -12,6 +12,7 @@ const Food = lazy(() => import("./pages/plan/components/Food"));
 const Alcohol = lazy(() => import("./pages/plan/components/Alcohol"));
 const Decorator = lazy(() => import("./pages/plan/components/Decorator"));
 const Rent = lazy(() => import("./pages/plan/components/Rent"));
+const Todo = lazy(() => import("./pages/todo/Todo"));
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate replace to={"/home"} />} />
             <Route path="/home" element={<HomePage />} />
+            <Route path="/todo/*" element={<Todo />}>
+              <Route path=":id" element={<HomePage />} />
+            </Route>
             <Route path="/create-plan/*" element={<CreatePlan />}>
               <Route path="occasion" element={<Occasion />} />
               <Route path="guest" element={<Guest />} />

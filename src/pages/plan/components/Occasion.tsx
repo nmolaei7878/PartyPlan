@@ -19,6 +19,7 @@ const Occasion = () => {
     if (plan?.occasion !== "") {
       dispatch(NextButton(true));
     }
+    console.log(plan?.id);
   }, []);
 
   return (

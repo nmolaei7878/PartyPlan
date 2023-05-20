@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import Saly2 from "../../../assets/icons/Saly2.svg";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   plan: Plan;
@@ -11,8 +12,18 @@ const UpComingCard: React.FC<Props> = ({ plan }) => {
     return new Date(plan.eventDate).getDate() - new Date().getDate();
   }, [plan]);
 
+  const navigate = useNavigate();
+  const goToTodo = () => {
+    navigate(`/todo/${plan.id}`, {
+      state: { id: plan.id },
+    });
+  };
+
   return (
-    <div className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">
+    <div
+      onClick={goToTodo}
+      className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative"
+    >
       <p className="mb-2 text-lg">{plan.eventName}</p>
       <p className="text-sm mb-3 font-normal">{`${diffrenceDays} days to go`}</p>
       <div></div>
