@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { KOccasion } from "../../../core/constatnt/KOccasion";
-import Tile from "../../home/shared/Tile";
+import Tile from "../../../components/shared-ui/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateOccasion } from "../../../redux/plan-slice";
 import { NextButton } from "../../../redux/ui-slice";
