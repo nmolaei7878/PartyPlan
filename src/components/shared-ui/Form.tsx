@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 
 interface FormInputProps {
   id: string;
@@ -24,4 +24,4 @@ const FormInput: React.FC<FormInputProps> = (props) => {
   );
 };
 
-export default FormInput;
+export default React.memo(FormInput);

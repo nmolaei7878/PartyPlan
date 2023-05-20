@@ -49,15 +49,21 @@ const planSlice = createSlice({
       state.newPlan!.guestSize = action.payload;
       // console.log(current(state.newPlan));
     },
-    updateEvent(state, action) {
-      state.newPlan!.eventName = action.payload.eventName;
-      state.newPlan!.eventDate = action.payload.eventDate;
-      state.newPlan!.eventTime = action.payload.eventTime;
-      state.newPlan!.budget = action.payload.budget;
+    updateEventName(state, action) {
+      state.newPlan!.eventName = action.payload;
+    },
+    updateEventDate(state, action) {
+      state.newPlan!.eventDate = action.payload;
+    },
+    updateEventTime(state, action) {
+      state.newPlan!.eventTime = action.payload;
+    },
+    updateEventbudget(state, action) {
+      state.newPlan!.budget = action.payload;
     },
     updateInvite(state, action) {
       state.newPlan!.eInvite = action.payload;
-      // console.log(current(state.newPlan));
+      console.log(current(state.newPlan));
     },
     updateFood(state, action) {
       state.newPlan!.foodArrangment = action.payload;
@@ -73,7 +79,7 @@ const planSlice = createSlice({
     },
     updateBoradGame(state, action) {
       state.newPlan!.boardGame = action.payload;
-      // console.log(current(state.newPlan));
+      console.log(current(state.newPlan));
     },
   },
 });
@@ -87,7 +93,10 @@ export const {
   updateBoradGame,
   updateGuest,
   resetPlan,
-  updateEvent,
+  updateEventDate,
+  updateEventName,
+  updateEventTime,
+  updateEventbudget,
   updateOccasion,
 } = planSlice.actions;
 export default planSlice.reducer;
