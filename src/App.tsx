@@ -21,10 +21,9 @@ function App() {
         <BaseLayout>
           <Routes>
             <Route path="/" element={<Navigate replace to={"/home"} />} />
+            {/* possibly can remove /home due to / path */}
             <Route path="/home" element={<HomePage />} />
-            <Route path="/todo/*" element={<Todo />}>
-              <Route path=":id" element={<HomePage />} />
-            </Route>
+            <Route path="/todo/:id" element={<Todo />} />
             <Route path="/create-plan/*" element={<CreatePlan />}>
               <Route path="occasion" element={<Occasion />} />
               <Route path="guest" element={<Guest />} />
