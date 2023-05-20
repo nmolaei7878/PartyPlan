@@ -16,7 +16,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
       <input
         onChange={props.onChange}
         defaultValue={props.value}
-        className=" py-2 px-3 w-full rounded-lg bg-zinc-900 border-[0.1rem] border-zinc-700"
+        className="min-h-[3.2rem] py-2 px-3 w-full rounded-lg bg-zinc-900 border-[0.1rem] border-zinc-700"
         type={props.formType}
         id={props.id}
       />
