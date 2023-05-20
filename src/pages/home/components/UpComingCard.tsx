@@ -1,10 +1,20 @@
+import { useMemo } from "react";
 import Saly2 from "../../../assets/icons/Saly2.svg";
+import React from "react";
 
-const UpComingCard = () => {
+interface Props {
+  plan: Plan;
+}
+
+const UpComingCard: React.FC<Props> = ({ plan }) => {
+  const diffrenceDays = useMemo(() => {
+    return new Date(plan.eventDate).getDate() - new Date().getDate();
+  }, [plan]);
+
   return (
     <div className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">
-      <p className="mb-2 text-lg">sara birthday bash</p>
-      <p className="text-sm mb-3 font-normal">10 days to go</p>
+      <p className="mb-2 text-lg">{plan.eventName}</p>
+      <p className="text-sm mb-3 font-normal">{`${diffrenceDays} days to go`}</p>
       <div></div>
 
       <img
@@ -26,4 +36,4 @@ const UpComingCard = () => {
   );
 };
 
-export default UpComingCard;
+export default React.memo(UpComingCard);

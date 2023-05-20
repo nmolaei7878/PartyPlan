@@ -75,7 +75,6 @@ const planSlice = createSlice({
     },
     addPlan(state) {
       state.plans.push(state.newPlan!);
-      console.log(current(state.plans));
     },
   },
 });

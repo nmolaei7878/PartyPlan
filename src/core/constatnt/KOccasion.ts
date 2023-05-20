@@ -9,31 +9,31 @@ type KOcassionType = {
 
 export const KOccasion: Array<KOcassionType> = [
   {
-    title: "Birthday",
+    title: "birthday",
     iconPath: KIcons.birthday,
     bg_color: "rgb(38,27,39)",
     bo_color: "pink",
   },
   {
-    title: "Anniversary",
+    title: "anniversary",
     iconPath: KIcons.anniversary,
     bg_color: "black",
     bo_color: "red",
   },
   {
-    title: "Dinner",
+    title: "dinner",
     iconPath: KIcons.dinner,
     bg_color: "black",
     bo_color: "green",
   },
   {
-    title: "Meet Up",
+    title: "meetup",
     iconPath: KIcons.meetup,
     bg_color: "black",
     bo_color: "blue",
   },
   {
-    title: "Other",
+    title: "other",
     iconPath: KIcons.other,
     bg_color: "black",
     bo_color: "yellow",

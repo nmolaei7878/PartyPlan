@@ -32,7 +32,7 @@ const Tile: React.FC<TileProps> = ({
       }}
     >
       <img className="h-12" src={icon} alt="" />
-      <p className="px-2 text- ">{title}</p>
+      <p className="px-2 capitalize">{title}</p>
       <p className="text-[0.8rem] font-light">{description}</p>
     </div>
   );

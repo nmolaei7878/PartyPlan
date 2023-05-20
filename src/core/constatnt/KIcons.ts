@@ -14,6 +14,8 @@ import small from "../../assets/icons/small.svg";
 import profile from "../../assets/icons/profile.svg";
 import profileborder from "../../assets/icons/profileborder.svg";
 
+export type IconKey = keyof typeof KIcons;
+
 export const KIcons = {
   birthday: birthday,
   anniversary: anniversary,
