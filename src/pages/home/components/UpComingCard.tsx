@@ -10,7 +10,6 @@ interface Props {
 }
 
 const UpComingCard: React.FC<Props> = ({ plan, index }) => {
-  console.log(index);
   const diffrenceDays = useMemo(() => {
     return new Date(plan.eventDate).getDate() - new Date().getDate();
   }, [plan]);
@@ -18,7 +17,7 @@ const UpComingCard: React.FC<Props> = ({ plan, index }) => {
   const navigate = useNavigate();
   const goToTodo = () => {
     navigate(`/todo/${plan.eventName}`, {
-      state: { index: index },
+      state: { index: index, diffrenceDays: diffrenceDays },
     });
   };
 
