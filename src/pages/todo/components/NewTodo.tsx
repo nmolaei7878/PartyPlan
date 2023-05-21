@@ -37,6 +37,7 @@ const NewTodo: React.FC<Props> = ({ planIndex }) => {
           disabled={true}
         />
         <input
+          tabIndex={-1}
           onKeyDown={handleKeyDown}
           ref={titleRef}
           defaultValue={titleRef.current?.value}

@@ -9,6 +9,7 @@ interface Props {
 const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
   const dispatch = useAppDispatch();
   const plans = useAppSelector((state) => state.plan);
+  const titleRef = useRef<any>(null);
 
   const handleCheckBox = (e: any) => {
     console.log(e.target.checked);
@@ -32,8 +33,7 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
           title: e.target.value,
         })
       );
-
-      e.target.blur();
+      titleRef.current?.blur();
     }
   };
 
@@ -47,6 +47,8 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
         onChange={handleCheckBox}
       />
       <input
+        ref={titleRef}
+        tabIndex={-1}
         onKeyDown={handleInput}
         className="bg-transparent border-transparent focus:outline-none w-full"
         defaultValue={plans.plans[planIndex].todos[todoIndex].title ?? ""}
