@@ -19,17 +19,21 @@ function App() {
 
   return (
     <>
-      <ErrorBoundary
-        onError={() => {
-          console.log("here");
-          navigate("/", { replace: true });
-        }}
-        fallback={<div>ERROR</div>}
-      >
-        <Suspense
-          fallback={<div className="w-screen h-screen bg-black "></div>}
+      <BaseLayout>
+        <ErrorBoundary
+          onError={() => {
+            console.log("here");
+            navigate("/", { replace: true });
+          }}
+          fallback={
+            <div className="text-3xl text-white font-bold">
+              you cant go back azizam Refresh the page to see a Magic
+            </div>
+          }
         >
-          <BaseLayout>
+          <Suspense
+            fallback={<div className="w-screen h-screen bg-black "></div>}
+          >
             <Routes>
               <Route path="/" element={<Navigate replace to={"/home"} />} />
 
@@ -47,9 +51,9 @@ function App() {
               </Route>
               <Route path="*" element={<HomePage />} />
             </Routes>
-          </BaseLayout>
-        </Suspense>
-      </ErrorBoundary>
+          </Suspense>
+        </ErrorBoundary>
+      </BaseLayout>
     </>
   );
 }
