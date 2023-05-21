@@ -3,6 +3,7 @@ import { useAppSelector } from "../../core/hook/hooks";
 import TodoTile from "./components/TodoTile";
 import NewTodo from "./components/NewTodo";
 import TodoHeader from "./components/TodoHeader";
+import { useMemo } from "react";
 
 const Todo = () => {
   const { state } = useLocation();
@@ -10,15 +11,20 @@ const Todo = () => {
 
   const plans = useAppSelector((state) => state.plan);
 
+  const todos: Array<TodoType> = useMemo(() => {
+    return Array().concat(plan.doneTodos, plan.remainingTodos);
+  }, [plan]);
+
   return (
     <div className="h-full w-full text-white text-lg font-bold flex flex-col justify-between gap-4">
-      <TodoHeader />
+      <TodoHeader
+        doenLength={plan.doneTodos.length}
+        remainingLength={plan.remainingTodos.length}
+      />
 
-      {Array(4)
-        .fill(null)
-        .map((e) => (
-          <TodoTile />
-        ))}
+      {todos.map((e) => (
+        <TodoTile todo={e} />
+      ))}
 
       <NewTodo />
     </div>

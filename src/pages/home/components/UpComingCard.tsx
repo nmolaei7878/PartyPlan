@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import Saly2 from "../../../assets/icons/Saly2.svg";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ const UpComingCard: React.FC<Props> = ({ plan }) => {
   const navigate = useNavigate();
   const goToTodo = () => {
     navigate(`/todo/${plan.eventName}`, {
-      state: { id: plan },
+      state: { plan: plan },
     });
   };
 
@@ -33,7 +33,11 @@ const UpComingCard: React.FC<Props> = ({ plan }) => {
         src={Saly2}
         alt=""
       />
-      <TodoCount width="w-1/2" />
+      <TodoCount
+        width="w-1/2"
+        doneTodos={plan.doneTodos.length}
+        remainingTodo={plan.remainingTodos.length}
+      />
     </div>
   );
 };

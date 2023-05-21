@@ -2,7 +2,13 @@ import React, { useCallback } from "react";
 import BackIcon from "../../../assets/icons/back_icon.svg";
 import TodoCount from "../../../components/shared-ui/TodoCount";
 import { useNavigate } from "react-router-dom";
-const TodoHeader = () => {
+
+interface Props {
+  remainingLength: number;
+  doenLength: number;
+}
+
+const TodoHeader: React.FC<Props> = ({ doenLength, remainingLength }) => {
   const navigate = useNavigate();
 
   const goBack = useCallback(() => {
@@ -21,11 +27,15 @@ const TodoHeader = () => {
           <p className="mt-2 text-sm mb-3 font-normal">{`10 days to go`}</p>
         </div>
         <div>
-          <TodoCount width="w-20" />
+          <TodoCount
+            width="w-20"
+            doneTodos={doenLength}
+            remainingTodo={remainingLength}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default React.memo(TodoHeader);
+export default TodoHeader;

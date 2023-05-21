@@ -7,6 +7,7 @@ type InitialState = {
 };
 
 const p: Plan | undefined = undefined;
+
 export type PlanKey = keyof typeof p;
 
 const initialState: InitialState = {
@@ -37,7 +38,8 @@ const planSlice = createSlice({
         foodArrangment: "",
         guestSize: "",
         occasion: "",
-        todos: [],
+        doneTodos: [],
+        remainingTodos: [],
       };
       state.createdID = action.payload.id;
     },
@@ -77,6 +79,31 @@ const planSlice = createSlice({
     addPlan(state) {
       state.plans.push(state.newPlan!);
     },
+    addTodo(state, action) {
+      // here we only works with remainings
+
+      // const foundedPlan = state.plans.find(
+      //   (plan) => plan.id === action.payload.id
+      // );
+      // check out this logic again for proper updating state
+      const foundedPlan = action.payload;
+
+      foundedPlan!.remainingTodos.push(action.payload.todo);
+      if (foundedPlan!.doneTodos.includes(action.payload.todo)) {
+        foundedPlan?.doneTodos.filter(
+          (todo: TodoType) => todo.id !== action.payload.todo.id
+        );
+      }
+
+      state.plans[action.payload];
+    },
+
+    // updateTodo(state, action) {
+    //   const foundedPlan = state.plans.find(plan => plan.id === action.payload.id)
+    //   if (foundedPlan) {
+    //   foundedPlan.todos.find(todo => todo.id === action.payload.todoId)
+    //   }
+    // },
   },
 });
 

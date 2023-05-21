@@ -11,5 +11,6 @@ type Plan = {
   alcohol: string;
   decorator: string;
   boardGame: string;
-  todos: Array<TodoType>;
+  remainingTodos: Array<TodoType>;
+  doneTodos: Array<TodoType>;
 };
