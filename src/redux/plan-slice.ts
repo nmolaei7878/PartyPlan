@@ -37,6 +37,7 @@ const planSlice = createSlice({
         foodArrangment: "",
         guestSize: "",
         occasion: "",
+        todos: [],
       };
       state.createdID = action.payload.id;
     },
