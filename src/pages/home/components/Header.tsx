@@ -12,8 +12,7 @@ interface Props {
 const Header: React.FC<Props> = (props) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  // const id = useId();
-  const id = new Date();
+  const id = useId();
 
   function goToCreatePlan() {
     dispatch(resetStteper());

@@ -7,8 +7,7 @@ import { NextButton, resetStteper } from "../../../redux/ui-slice";
 
 const NoUpComingCard = () => {
   const navigate = useNavigate();
-  // const id = useId();
-  const id = new Date();
+  const id = useId();
 
   function goToCreatePlan() {
     dispatch(resetStteper());

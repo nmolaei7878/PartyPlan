@@ -41,7 +41,7 @@ const planSlice = createSlice({
         doneTodos: [],
         remainingTodos: [],
       };
-      state.createdID = action.payload.id;
+      state.createdID = action.payload;
     },
     updateOccasion(state, action) {
       state.newPlan!.occasion = action.payload;
@@ -88,14 +88,14 @@ const planSlice = createSlice({
       // check out this logic again for proper updating state
       const foundedPlan = action.payload;
 
-      foundedPlan!.remainingTodos.push(action.payload.todo);
-      if (foundedPlan!.doneTodos.includes(action.payload.todo)) {
-        foundedPlan?.doneTodos.filter(
-          (todo: TodoType) => todo.id !== action.payload.todo.id
-        );
-      }
+      // foundedPlan!.remainingTodos.push(action.payload.todo);
+      // if (foundedPlan!.doneTodos.includes(action.payload.todo)) {
+      //   foundedPlan?.doneTodos.filter(
+      //     (todo: TodoType) => todo.id !== action.payload.todo.id
+      //   );
+      // }
 
-      state.plans[action.payload];
+      // state.plans[action.payload];
     },
 
     // updateTodo(state, action) {
