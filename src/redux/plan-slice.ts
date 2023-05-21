@@ -9,7 +9,6 @@ type InitialState = {
 const p: Plan | undefined = undefined;
 
 export type PlanKey = keyof typeof p;
-
 const initialState: InitialState = {
   plans: [],
   newPlan: p,
@@ -38,8 +37,7 @@ const planSlice = createSlice({
         foodArrangment: "",
         guestSize: "",
         occasion: "",
-        doneTodos: [],
-        remainingTodos: [],
+        todos: [],
       };
       state.createdID = action.payload;
     },
@@ -81,24 +79,16 @@ const planSlice = createSlice({
     },
     addTodo(state, action) {
       const { planIndex, todo } = action.payload;
-
-      state.plans[planIndex].remainingTodos.push(todo);
-      console.log(current(state.plans));
-      // if (foundedPlan!.doneTodos.includes(action.payload.todo)) {
-      //   foundedPlan?.doneTodos.filter(
-      //     (todo: TodoType) => todo.id !== action.payload.todo.id
-      //   );
-      // }
-
-      // state.plans[action.payload];
+      state.plans[planIndex].todos.push(todo);
     },
-
-    // updateTodo(state, action) {
-    //   const foundedPlan = state.plans.find(plan => plan.id === action.payload.id)
-    //   if (foundedPlan) {
-    //   foundedPlan.todos.find(todo => todo.id === action.payload.todoId)
-    //   }
-    // },
+    toggleTodo(state, action) {
+      const { planIndex, todoIndex, value } = action.payload;
+      state.plans[planIndex].todos[todoIndex].status = value;
+    },
+    editTodo(state, action) {
+      const { planIndex, todoIndex, title } = action.payload;
+      state.plans[planIndex].todos[todoIndex].title = title;
+    },
   },
 });
 
@@ -111,12 +101,14 @@ export const {
   updateBoradGame,
   updateGuest,
   resetPlan,
-  addTodo,
   updateEventDate,
   updateEventName,
   updateEventTime,
   updateEventbudget,
   updateOccasion,
   addPlan,
+  addTodo,
+  toggleTodo,
+  editTodo,
 } = planSlice.actions;
 export default planSlice.reducer;

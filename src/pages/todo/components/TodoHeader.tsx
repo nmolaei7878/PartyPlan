@@ -4,11 +4,10 @@ import TodoCount from "../../../components/shared-ui/TodoCount";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-  remainingLength: number;
-  doneLength: number;
+  planIndx: number;
 }
 
-const TodoHeader: React.FC<Props> = ({ doneLength, remainingLength }) => {
+const TodoHeader: React.FC<Props> = ({ planIndx }) => {
   const navigate = useNavigate();
 
   const goBack = useCallback(() => {
@@ -27,11 +26,7 @@ const TodoHeader: React.FC<Props> = ({ doneLength, remainingLength }) => {
           <p className="mt-2 text-sm mb-3 font-normal">{`10 days to go`}</p>
         </div>
         <div>
-          <TodoCount
-            width="w-20"
-            doneTodos={doneLength}
-            remainingTodo={remainingLength}
-          />
+          <TodoCount width="w-20" planIndex={planIndx} />
         </div>
       </div>
     </div>

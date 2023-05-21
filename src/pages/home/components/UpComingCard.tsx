@@ -35,11 +35,7 @@ const UpComingCard: React.FC<Props> = ({ plan, index }) => {
         src={Saly2}
         alt=""
       />
-      <TodoCount
-        width="w-1/2"
-        doneTodos={plan.doneTodos.length}
-        remainingTodo={plan.remainingTodos.length}
-      />
+      <TodoCount width="w-1/2" planIndex={index} />
     </div>
   );
 };

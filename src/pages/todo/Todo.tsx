@@ -10,22 +10,12 @@ const Todo = () => {
   const { index }: { index: number } = state;
   const plans = useAppSelector((state) => state.plan);
 
-  // after debug implement it with useMemo
-  const todos = useMemo(() => {
-    return plans.plans[index].doneTodos.concat(
-      plans.plans[index].remainingTodos
-    );
-  }, [plans.plans[index]]);
-
   return (
     <div className="h-full w-full text-white text-lg font-bold flex flex-col justify-between gap-4">
-      <TodoHeader
-        doneLength={plans.plans[index].doneTodos.length}
-        remainingLength={plans.plans[index].remainingTodos.length}
-      />
+      <TodoHeader planIndx={index} />
 
-      {todos.map((e) => (
-        <TodoTile todo={e} />
+      {plans.plans[index].todos.map((todo, index) => (
+        <TodoTile todoIndex={index} planIndex={index} key={todo.id} />
       ))}
 
       <NewTodo planIndex={index} />
