@@ -17,6 +17,7 @@ const Todo = lazy(() => import("./pages/todo/Todo"));
 function App() {
   return (
     <>
+      {/* <ErrorBoundary fallback={<p>Something went wrong</p>}> */}
       <Suspense fallback={<div className="w-screen h-screen bg-black "></div>}>
         <BaseLayout>
           <Routes>
@@ -38,6 +39,7 @@ function App() {
           </Routes>
         </BaseLayout>
       </Suspense>
+      {/* </ErrorBoundary> */}
     </>
   );
 }

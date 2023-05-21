@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 type InitialState = {
   plans: Array<Plan>;
@@ -80,15 +80,10 @@ const planSlice = createSlice({
       state.plans.push(state.newPlan!);
     },
     addTodo(state, action) {
-      // here we only works with remainings
+      const { planIndex, todo } = action.payload;
 
-      // const foundedPlan = state.plans.find(
-      //   (plan) => plan.id === action.payload.id
-      // );
-      // check out this logic again for proper updating state
-      const foundedPlan = action.payload;
-
-      // foundedPlan!.remainingTodos.push(action.payload.todo);
+      state.plans[planIndex].remainingTodos.push(todo);
+      console.log(current(state.plans));
       // if (foundedPlan!.doneTodos.includes(action.payload.todo)) {
       //   foundedPlan?.doneTodos.filter(
       //     (todo: TodoType) => todo.id !== action.payload.todo.id
@@ -116,6 +111,7 @@ export const {
   updateBoradGame,
   updateGuest,
   resetPlan,
+  addTodo,
   updateEventDate,
   updateEventName,
   updateEventTime,

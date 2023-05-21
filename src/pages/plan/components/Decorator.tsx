@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { KQADecorator } from "../../../core/constatnt/KQADecorator";
+import { KQADecorator } from "../../../core/constant/KQADecorator";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { NextButton } from "../../../redux/ui-slice";

@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { useNavigate } from "react-router-dom";
 import { createPlan, resetPlan } from "../../../redux/plan-slice";
-import { KIcons } from "../../../core/constatnt/KIcons";
+import { KIcons } from "../../../core/constant/KIcons";
 import { useId } from "react";
 import { NextButton, resetStteper } from "../../../redux/ui-slice";
 

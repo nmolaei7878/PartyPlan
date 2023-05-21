@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo } from "react";
-import { KQAInvite } from "../../../core/constatnt/KQAInvite";
+import { KQAInvite } from "../../../core/constant/KQAInvite";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateInvite } from "../../../redux/plan-slice";
 import { NextButton } from "../../../redux/ui-slice";

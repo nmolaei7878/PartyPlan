@@ -20,6 +20,7 @@ const TodoTile: React.FC<Props> = ({ todo }) => {
         onChange={handleCheckBox}
       />
       <input
+        onChange={handleCheckBox}
         className=" bg-transparent border-transparent focus:outline-none "
         defaultValue={todo.title}
       />

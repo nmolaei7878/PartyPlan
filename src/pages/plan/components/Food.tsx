@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo } from "react";
-import { KQAFood } from "../../../core/constatnt/KQAFood";
+import { KQAFood } from "../../../core/constant/KQAFood";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateFood } from "../../../redux/plan-slice";
 import { NextButton } from "../../../redux/ui-slice";

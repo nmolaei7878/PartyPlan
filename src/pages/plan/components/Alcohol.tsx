@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { NextButton } from "../../../redux/ui-slice";
 import { updateAlcohol } from "../../../redux/plan-slice";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
-import { KQAAlcohol } from "../../../core/constatnt/KQAAlcohol";
+import { KQAAlcohol } from "../../../core/constant/KQAAlcohol";
 
 const Alcohol = () => {
   const memoizeKQAAlcohol = useMemo(() => KQAAlcohol, []);

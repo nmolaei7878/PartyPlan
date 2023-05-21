@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useId, useRef } from "react";
+import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
+import { addTodo } from "../../../redux/plan-slice";
 
-const NewTodo = () => {
+interface Props {
+  planIndex: number;
+}
+
+const NewTodo: React.FC<Props> = ({ planIndex }) => {
+  const dispatch = useAppDispatch();
+  const id = useId();
+  const titleRef = useRef<HTMLInputElement>(null);
   const handleKeyDown = (e: any) => {
+    const data = {
+      todo: {
+        id: id,
+        title: e.target.value,
+        status: false,
+      },
+      planIndex: planIndex,
+    };
+
     if (e.key === "Enter") {
-      console.log("do validate");
+      dispatch(addTodo(data));
+      titleRef.current!.value = "";
+      e.target.blur();
     }
   };
 
@@ -19,6 +39,8 @@ const NewTodo = () => {
         />
         <input
           onKeyDown={handleKeyDown}
+          ref={titleRef}
+          defaultValue={titleRef.current?.value}
           className="font-light text-sm bg-transparent border-transparent focus:outline-none"
           placeholder="Tap to add new item to the list"
         />

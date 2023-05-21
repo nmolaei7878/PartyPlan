@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateBoradGame } from "../../../redux/plan-slice";
 import { NextButton } from "../../../redux/ui-slice";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
-import { KQABoardGames } from "../../../core/constatnt/KQABoardGames";
+import { KQABoardGames } from "../../../core/constant/KQABoardGames";
 
 const Rent = () => {
   const memoizeKQABoardGames = useMemo(() => KQABoardGames, []);

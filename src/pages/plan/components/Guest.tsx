@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import Tile from "../../../components/shared-ui/Tile";
-import { KGuest } from "../../../core/constatnt/KGuest";
+import { KGuest } from "../../../core/constant/KGuest";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateGuest } from "../../../redux/plan-slice";
 import { NextButton } from "../../../redux/ui-slice";

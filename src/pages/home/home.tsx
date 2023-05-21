@@ -41,7 +41,9 @@ const HomePage = () => {
       <Header isShow={upComingPlans.length > 0 ? true : false} />
 
       {upComingPlans.length > 0 ? (
-        upComingPlans.map((plan) => <UpComingCard plan={plan} key={plan.id} />)
+        upComingPlans.map((plan, index) => (
+          <UpComingCard plan={plan} index={index} key={plan.id} />
+        ))
       ) : (
         <NoUpComingCard />
       )}

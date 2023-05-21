@@ -6,9 +6,11 @@ import TodoCount from "../../../components/shared-ui/TodoCount";
 
 interface Props {
   plan: Plan;
+  index: number;
 }
 
-const UpComingCard: React.FC<Props> = ({ plan }) => {
+const UpComingCard: React.FC<Props> = ({ plan, index }) => {
+  console.log(index);
   const diffrenceDays = useMemo(() => {
     return new Date(plan.eventDate).getDate() - new Date().getDate();
   }, [plan]);
@@ -16,7 +18,7 @@ const UpComingCard: React.FC<Props> = ({ plan }) => {
   const navigate = useNavigate();
   const goToTodo = () => {
     navigate(`/todo/${plan.eventName}`, {
-      state: { plan: plan },
+      state: { plan: plan, index: index },
     });
   };
 

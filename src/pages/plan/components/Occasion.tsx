@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { KOccasion } from "../../../core/constatnt/KOccasion";
+import { KOccasion } from "../../../core/constant/KOccasion";
 import Tile from "../../../components/shared-ui/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateOccasion } from "../../../redux/plan-slice";

@@ -1,5 +1,5 @@
 import React from "react";
-import { IconKey, KIcons } from "../../../core/constatnt/KIcons";
+import { IconKey, KIcons } from "../../../core/constant/KIcons";
 
 interface Props {
   iconPath: string;

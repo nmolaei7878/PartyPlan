@@ -8,12 +8,15 @@ import { useMemo } from "react";
 const Todo = () => {
   const { state } = useLocation();
   const { plan }: { plan: Plan } = state;
-
+  const { index }: { index: number } = state;
   const plans = useAppSelector((state) => state.plan);
 
-  const todos: Array<TodoType> = useMemo(() => {
-    return Array().concat(plan.doneTodos, plan.remainingTodos);
-  }, [plan]);
+  const todos = () => {
+    return Array().concat(
+      plan.doneTodos,
+      plan.remainingTodos
+    ) as Array<TodoType>;
+  };
 
   return (
     <div className="h-full w-full text-white text-lg font-bold flex flex-col justify-between gap-4">
@@ -22,11 +25,11 @@ const Todo = () => {
         remainingLength={plan.remainingTodos.length}
       />
 
-      {todos.map((e) => (
+      {/* {todos.map((e) => (
         <TodoTile todo={e} />
-      ))}
+      ))} */}
 
-      <NewTodo />
+      <NewTodo planIndex={index} />
     </div>
   );
 };
