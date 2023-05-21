@@ -7,7 +7,7 @@ import {
   addToStteper,
   removeFromStteper,
 } from "../../redux/ui-slice";
-import { addPlan } from "../../redux/plan-slice";
+import { addPlan, resetPlan } from "../../redux/plan-slice";
 import HeaderCreatePlan from "../../components/shared-ui/HeaderCreatePlan";
 import NextButtonCreatePlan from "../../components/shared-ui/NextButtonCreatePlan";
 
@@ -71,6 +71,7 @@ const CreatePlan = () => {
 
       case KPlanRouteNames.Rent:
         dispatch(addPlan());
+        dispatch(resetPlan());
         navigate("/", { replace: true });
         break;
 

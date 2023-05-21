@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "./pages/home/home";
 import BaseLayout from "./components/layout/BaseLayout";
 import { ErrorBoundary } from "react-error-boundary";
@@ -15,9 +15,17 @@ const Rent = lazy(() => import("./pages/plan/components/Rent"));
 const Todo = lazy(() => import("./pages/todo/Todo"));
 
 function App() {
+  const navigate = useNavigate();
+
   return (
     <>
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+      <ErrorBoundary
+        onError={() => {
+          console.log("here");
+          navigate("/", { replace: true });
+        }}
+        fallback={<div>ERROR</div>}
+      >
         <Suspense
           fallback={<div className="w-screen h-screen bg-black "></div>}
         >
