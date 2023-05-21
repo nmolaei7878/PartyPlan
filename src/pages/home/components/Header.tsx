@@ -2,7 +2,6 @@ import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { useNavigate } from "react-router-dom";
 import { createPlan, resetPlan } from "../../../redux/plan-slice";
 import { KIcons } from "../../../core/constant/KIcons";
-import { useId } from "react";
 import { NextButton, resetStteper } from "../../../redux/ui-slice";
 
 interface Props {
@@ -12,7 +11,7 @@ interface Props {
 const Header: React.FC<Props> = (props) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const id = useId();
+  const id = new Date().getTime();
 
   function goToCreatePlan() {
     dispatch(resetStteper());

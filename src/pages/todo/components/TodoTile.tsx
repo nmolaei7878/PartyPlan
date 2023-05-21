@@ -25,7 +25,6 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
   const handleInput = (e: any) => {
     if (e.key === "Enter") {
       console.log(e.target.value);
-
       dispatch(
         editTodo({
           planIndex: planIndex,
@@ -41,7 +40,7 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
   return (
     <div className="bg-zinc-800 p-3 rounded-md flex gap-3">
       <input
-        defaultChecked={plans.plans[planIndex].todos[todoIndex].status}
+        defaultChecked={plans.plans[planIndex].todos[todoIndex].status ?? false}
         id="myinput"
         type="checkbox"
         className=""
@@ -50,7 +49,7 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
       <input
         onKeyDown={handleInput}
         className="bg-transparent border-transparent focus:outline-none w-full"
-        defaultValue={plans.plans[planIndex].todos[todoIndex].title}
+        defaultValue={plans.plans[planIndex].todos[todoIndex].title ?? ""}
       />
     </div>
   );

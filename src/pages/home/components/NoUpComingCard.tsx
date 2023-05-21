@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React from "react";
 import Sayl from "../../../assets/icons/sayl.svg";
 import { useNavigate } from "react-router-dom";
 import { createPlan, resetPlan } from "../../../redux/plan-slice";
@@ -7,7 +7,7 @@ import { NextButton, resetStteper } from "../../../redux/ui-slice";
 
 const NoUpComingCard = () => {
   const navigate = useNavigate();
-  const id = useId();
+  const id = new Date().getTime();
 
   function goToCreatePlan() {
     dispatch(resetStteper());

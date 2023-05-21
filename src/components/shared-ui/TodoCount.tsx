@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useAppSelector } from "../../core/hook/hooks";
 
 interface Props {
@@ -10,17 +10,22 @@ interface Props {
 const TodoCount: React.FC<Props> = ({ width, gap, planIndex }) => {
   const plans = useAppSelector((state) => state.plan);
 
-  let done = [];
-  let remaining = [];
+  const [done, setDone] = useState(0);
+  const [remaining, setRemaining] = useState(0);
 
   const todos = useCallback(() => {
+    let done = 0;
+    let remaining = 0;
+
     for (const todo of plans.plans[planIndex].todos) {
       if (todo.status) {
-        done.push(todo);
+        done += 1;
       } else {
-        remaining.push(todo);
+        remaining += 1;
       }
     }
+    setDone(done);
+    setRemaining(remaining);
   }, [plans.plans[planIndex].todos]);
 
   useEffect(() => {
@@ -30,11 +35,11 @@ const TodoCount: React.FC<Props> = ({ width, gap, planIndex }) => {
   return (
     <div className={`flex items-center justify-between ${width}`}>
       <div>
-        <p className="text-md">{done.length}</p>
+        <p className="text-md">{done}</p>
         <p className="text-sm text-gray-300">done</p>
       </div>
       <div>
-        <p className="text-md">{remaining.length}</p>
+        <p className="text-md">{remaining}</p>
         <p className="text-sm text-gray-300">To Do</p>
       </div>
     </div>

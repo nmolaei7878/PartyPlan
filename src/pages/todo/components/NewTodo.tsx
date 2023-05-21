@@ -8,12 +8,11 @@ interface Props {
 
 const NewTodo: React.FC<Props> = ({ planIndex }) => {
   const dispatch = useAppDispatch();
-  const id = useId();
   const titleRef = useRef<HTMLInputElement>(null);
   const handleKeyDown = (e: any) => {
     const data = {
       todo: {
-        id: id,
+        id: new Date().getTime(),
         title: e.target.value,
         status: false,
       },
