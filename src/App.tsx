@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home/home";
 import BaseLayout from "./components/layout/BaseLayout";
-
+import { ErrorBoundary } from "react-error-boundary";
 const CreatePlan = lazy(() => import("./pages/plan/CreatePlan"));
 const Occasion = lazy(() => import("./pages/plan/components/Occasion"));
 const Guest = lazy(() => import("./pages/plan/components/Guest"));
@@ -17,29 +17,31 @@ const Todo = lazy(() => import("./pages/todo/Todo"));
 function App() {
   return (
     <>
-      {/* <ErrorBoundary fallback={<p>Something went wrong</p>}> */}
-      <Suspense fallback={<div className="w-screen h-screen bg-black "></div>}>
-        <BaseLayout>
-          <Routes>
-            <Route path="/" element={<Navigate replace to={"/home"} />} />
-            {/* possibly can remove /home due to / path */}
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/todo/:id" element={<Todo />} />
-            <Route path="/create-plan/*" element={<CreatePlan />}>
-              <Route path="occasion" element={<Occasion />} />
-              <Route path="guest" element={<Guest />} />
-              <Route path="event" element={<EventComp />} />
-              <Route path="invite" element={<Invite />} />
-              <Route path="food" element={<Food />} />
-              <Route path="alcohol" element={<Alcohol />} />
-              <Route path="decorator" element={<Decorator />} />
-              <Route path="rent" element={<Rent />} />
-            </Route>
-            <Route path="*" element={<HomePage />} />
-          </Routes>
-        </BaseLayout>
-      </Suspense>
-      {/* </ErrorBoundary> */}
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        <Suspense
+          fallback={<div className="w-screen h-screen bg-black "></div>}
+        >
+          <BaseLayout>
+            <Routes>
+              <Route path="/" element={<Navigate replace to={"/home"} />} />
+
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/todo/:id" element={<Todo />} />
+              <Route path="/create-plan/*" element={<CreatePlan />}>
+                <Route path="occasion" element={<Occasion />} />
+                <Route path="guest" element={<Guest />} />
+                <Route path="event" element={<EventComp />} />
+                <Route path="invite" element={<Invite />} />
+                <Route path="food" element={<Food />} />
+                <Route path="alcohol" element={<Alcohol />} />
+                <Route path="decorator" element={<Decorator />} />
+                <Route path="rent" element={<Rent />} />
+              </Route>
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </BaseLayout>
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 }
