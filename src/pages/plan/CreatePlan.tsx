@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import KPlanRouteNames from "../../core/constant/KRouteNames";
-import BackIcon from "../../assets/icons/back_icon.svg";
 import { useAppDispatch, useAppSelector } from "../../core/hook/hooks";
 import {
   NextButton,
@@ -9,6 +8,8 @@ import {
   removeFromStteper,
 } from "../../redux/ui-slice";
 import { addPlan } from "../../redux/plan-slice";
+import HeaderCreatePlan from "../../components/shared-ui/HeaderCreatePlan";
+import NextButtonCreatePlan from "../../components/shared-ui/NextButtonCreatePlan";
 
 const CreatePlan = () => {
   const history = useLocation();
@@ -79,10 +80,6 @@ const CreatePlan = () => {
     }
   }, [history.pathname]);
 
-  const goBack = useCallback(() => {
-    navigate(-1);
-  }, []);
-
   const onCLickNext = () => {
     if (ui.next) {
       nextStep();
@@ -91,33 +88,11 @@ const CreatePlan = () => {
 
   return (
     <div className="h-full w-full text-white text-lg font-bold flex flex-col justify-between">
-      <div className="h-1/20 ">
-        <div className="flex items-center gap-3  ">
-          <img onClick={goBack} className="w-8" src={BackIcon} alt="" />
-          <p className="text-xl">Create a New Event</p>
-        </div>
-        <div className="w-full bg-gray-600 h-1 mt-3">
-          <div
-            className="bg-blue-300 h-1 mt-3 "
-            style={{
-              width: `${ui.stteper}%`,
-            }}
-          ></div>
-        </div>
-      </div>
+      <HeaderCreatePlan />
       <div className=" h-8/10 ">
         <Outlet context={memoizeId} />
       </div>
-      <div className="h-1/10 flex items-end w-full absolute bottom-5 left-0 px-6">
-        <button
-          onClick={onCLickNext}
-          className={`h-12 w-full rounded-md bg-blue-300 text-lg font-bold uppercase text-white ${
-            ui.next ? "opacity-100" : "opacity-50"
-          }`}
-        >
-          {ui.stteper === 100 ? "Submit" : "Next"}
-        </button>
-      </div>
+      <NextButtonCreatePlan onCLickNext={onCLickNext} />
     </div>
   );
 };
