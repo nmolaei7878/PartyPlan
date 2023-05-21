@@ -14,6 +14,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
     <div className="flex flex-col w-full text-white gap-2">
       <label htmlFor={props.id}>{props.label}</label>
       <input
+        placeholder={props.placeHolder}
         onChange={props.onChange}
         defaultValue={props.value}
         className="min-h-[3.2rem] py-2 px-3 w-full rounded-lg bg-zinc-900 border-[0.1rem] border-zinc-700"
