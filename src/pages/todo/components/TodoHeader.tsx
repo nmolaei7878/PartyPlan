@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
   remainingLength: number;
-  doenLength: number;
+  doneLength: number;
 }
 
-const TodoHeader: React.FC<Props> = ({ doenLength, remainingLength }) => {
+const TodoHeader: React.FC<Props> = ({ doneLength, remainingLength }) => {
   const navigate = useNavigate();
 
   const goBack = useCallback(() => {
@@ -29,7 +29,7 @@ const TodoHeader: React.FC<Props> = ({ doenLength, remainingLength }) => {
         <div>
           <TodoCount
             width="w-20"
-            doneTodos={doenLength}
+            doneTodos={doneLength}
             remainingTodo={remainingLength}
           />
         </div>

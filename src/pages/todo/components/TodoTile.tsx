@@ -11,7 +11,7 @@ const TodoTile: React.FC<Props> = ({ todo }) => {
   };
 
   return (
-    <div className="bg-zinc-800 p-3 rounded-md ">
+    <div className="bg-zinc-800 p-3 rounded-md flex gap-3">
       <input
         checked={todo.status}
         id="myinput"
@@ -21,7 +21,7 @@ const TodoTile: React.FC<Props> = ({ todo }) => {
       />
       <input
         onChange={handleCheckBox}
-        className=" bg-transparent border-transparent focus:outline-none "
+        className="bg-transparent border-transparent focus:outline-none "
         defaultValue={todo.title}
       />
     </div>

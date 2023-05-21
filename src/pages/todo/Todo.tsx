@@ -7,27 +7,26 @@ import { useMemo } from "react";
 
 const Todo = () => {
   const { state } = useLocation();
-  const { plan }: { plan: Plan } = state;
   const { index }: { index: number } = state;
   const plans = useAppSelector((state) => state.plan);
 
-  const todos = () => {
-    return Array().concat(
-      plan.doneTodos,
-      plan.remainingTodos
-    ) as Array<TodoType>;
-  };
+  // after debug implement it with useMemo
+  const todos = useMemo(() => {
+    return plans.plans[index].doneTodos.concat(
+      plans.plans[index].remainingTodos
+    );
+  }, [plans.plans[index]]);
 
   return (
     <div className="h-full w-full text-white text-lg font-bold flex flex-col justify-between gap-4">
       <TodoHeader
-        doenLength={plan.doneTodos.length}
-        remainingLength={plan.remainingTodos.length}
+        doneLength={plans.plans[index].doneTodos.length}
+        remainingLength={plans.plans[index].remainingTodos.length}
       />
 
-      {/* {todos.map((e) => (
+      {todos.map((e) => (
         <TodoTile todo={e} />
-      ))} */}
+      ))}
 
       <NewTodo planIndex={index} />
     </div>
