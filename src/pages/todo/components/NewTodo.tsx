@@ -1,5 +1,5 @@
-import React, { useId, useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
+import React, { useRef } from "react";
+import { useAppDispatch } from "../../../core/hook/hooks";
 import { addTodo } from "../../../redux/plan-slice";
 
 interface Props {

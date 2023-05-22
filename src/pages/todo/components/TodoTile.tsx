@@ -12,8 +12,6 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
   const titleRef = useRef<any>(null);
 
   const handleCheckBox = (e: any) => {
-    console.log(e.target.checked);
-
     dispatch(
       toggleTodo({
         planIndex: planIndex,
@@ -25,7 +23,6 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
 
   const handleInput = (e: any) => {
     if (e.key === "Enter") {
-      console.log(e.target.value);
       dispatch(
         editTodo({
           planIndex: planIndex,

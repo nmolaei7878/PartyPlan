@@ -22,17 +22,16 @@ function App() {
       <BaseLayout>
         <ErrorBoundary
           onError={() => {
-            console.log("here");
             navigate("/", { replace: true });
           }}
           fallback={
-            <div className="text-3xl text-white font-bold">
-              you cant go back azizam Refresh the page to see a Magic
+            <div className="text-3xl text-white font-bold flex flex-col gap-10 items-center justify-center">
+              <p className="text-red-500">Refresh The Page</p>{" "}
             </div>
           }
         >
           <Suspense
-            fallback={<div className="w-screen h-screen bg-black "></div>}
+            fallback={<div className="w-screen h-min-screen bg-black "></div>}
           >
             <Routes>
               <Route path="/" element={<Navigate replace to={"/home"} />} />

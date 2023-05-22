@@ -13,7 +13,6 @@ const HomePage = () => {
 
   useEffect(() => {
     //check to posibly wrap with useCallBack
-    console.log("runnig");
     let pervv = [];
     let coming = [];
     // iterate over all plans
