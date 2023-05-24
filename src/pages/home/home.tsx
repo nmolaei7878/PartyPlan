@@ -39,17 +39,19 @@ const HomePage = () => {
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
       <Header isShow={upComingPlans.length > 0 ? true : false} />
 
-      {upComingPlans.length > 0 ? (
-        upComingPlans.map((plan, index) => (
-          <UpComingCard plan={plan} index={index} key={plan.id} />
-        ))
-      ) : (
-        <NoUpComingCard />
-      )}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        {upComingPlans.length > 0 ? (
+          upComingPlans.map((plan, index) => (
+            <UpComingCard plan={plan} index={index} key={plan.id} />
+          ))
+        ) : (
+          <NoUpComingCard />
+        )}
+      </div>
 
       <p className="mt-4">pervious house parties</p>
 
-      <ul className="grid grid-cols-2 w-full gap-5 h-full mb-20 items-center ">
+      <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 w-full gap-5 h-full mb-20 items-center ">
         {pervPlans.map((plan) => (
           <PervListTile
             key={plan.id}
