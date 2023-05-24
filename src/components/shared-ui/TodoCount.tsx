@@ -7,7 +7,7 @@ interface Props {
   planIndex: number;
 }
 
-const TodoCount: React.FC<Props> = ({ width, gap, planIndex }) => {
+const TodoCount: React.FC<Props> = ({ width, planIndex }) => {
   const plans = useAppSelector((state) => state.plan);
 
   const [done, setDone] = useState(0);
@@ -33,7 +33,7 @@ const TodoCount: React.FC<Props> = ({ width, gap, planIndex }) => {
   }, [plans.plans[planIndex].todos]);
 
   return (
-    <div className={`flex items-center justify-between ${width}`}>
+    <div className={`flex items-center justify-between ${width} `}>
       <div>
         <p className="text-md">{done}</p>
         <p className="text-sm text-gray-300">done</p>

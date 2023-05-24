@@ -27,7 +27,7 @@ const NewTodo: React.FC<Props> = ({ planIndex }) => {
   };
 
   return (
-    <div className="bg-zinc-800 p-3 rounded-md group">
+    <div className="bg-zinc-800 p-3 rounded-md">
       <div className="flex gap-3 items-center">
         <input
           id="myinput"
