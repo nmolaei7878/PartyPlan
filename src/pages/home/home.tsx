@@ -27,7 +27,6 @@ const HomePage = () => {
         pervv.push(plan);
       }
     }
-    console.log(plans.plans);
     coming.sort(function (a, b) {
       return new Date(a.eventDate).getDate() - new Date(b.eventDate).getDate();
     });

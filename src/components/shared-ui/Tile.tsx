@@ -31,7 +31,11 @@ const Tile: React.FC<TileProps> = ({
         backgroundColor: style?.backgroundColor,
       }}
     >
-      <img className="h-full w-full px-3" src={icon} alt="" />
+      <img
+        className="h-5/6 w-5/6 sm:w-4/6 sm:h-4/6 md:h-3/6 md:w-3/6 min-[470px]:w-4/6 min-[631px]:w-3/6 px-3 "
+        src={icon}
+        alt=""
+      />
       <p className="px-2 capitalize text-[0.95rem] ">{title}</p>
       <p className="text-[0.7rem] font-light">{description}</p>
     </div>

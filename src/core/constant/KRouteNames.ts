@@ -1,5 +1,4 @@
 const KPlanRouteNames = {
-  Home: "home",
   Occasion: "occasion",
   Guest: "guest",
   Event: "event",

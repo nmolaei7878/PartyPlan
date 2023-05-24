@@ -35,7 +35,6 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<Navigate replace to={"/home"} />} />
-
               <Route path="/home" element={<HomePage />} />
               <Route path="/todo/:id" element={<Todo />} />
               <Route path="/create-plan/*" element={<CreatePlan />}>
