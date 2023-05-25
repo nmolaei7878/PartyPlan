@@ -41,6 +41,7 @@ in the end, todos are very tight to plans
 
 # **Folder Structure**
 
+- test
 - assets
   - icons
 - componenets
