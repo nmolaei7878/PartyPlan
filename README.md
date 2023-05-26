@@ -58,6 +58,8 @@ in the end, todos were very tight and specific to the plans
 
 # **Project Folder Structure**
 
+### **newly added files and folders got star \* sign in front**
+
 - assets
   - icons
 - componenets
@@ -79,10 +81,10 @@ in the end, todos were very tight and specific to the plans
     - todo.tsx
 - redux
   - store.ts
-  - test
-    - plan-slice.test.ts
-    - ui-slice.test.ts
-  - slices
+  - **test \***
+    - **plan-slice.test.ts \***
+    - **ui-slice.test.ts \***
+  - **slices \***
     - plan-slice.ts
     - ui-slice.ts
 - types
