@@ -38,15 +38,15 @@ const HomePage = () => {
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
       <Header isShow={upComingPlans.length > 0 ? true : false} />
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-        {upComingPlans.length > 0 ? (
-          upComingPlans.map((plan, index) => (
+      {upComingPlans.length > 0 ? (
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          {upComingPlans.map((plan, index) => (
             <UpComingCard plan={plan} index={index} key={plan.id} />
-          ))
-        ) : (
-          <NoUpComingCard />
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <NoUpComingCard />
+      )}
 
       <p className="mt-4">pervious house parties</p>
 

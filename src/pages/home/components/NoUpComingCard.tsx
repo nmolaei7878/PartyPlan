@@ -19,7 +19,7 @@ const NoUpComingCard = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">
+    <div className=" bg-gradient-to-r from-slate-500 to-slate-800 rounded-md h-40 p-6 relative">
       <p className="mb-2 text-lg">no upcoming house party</p>
       <p className="text-sm mb-3 font-normal">Plan your house party</p>
       <button
