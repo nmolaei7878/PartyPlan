@@ -1,3 +1,5 @@
+# [Live Demo](https://party-plan.vercel.app/home)
+
 # **Changelog**
 
 - **Responsive**
@@ -56,7 +58,7 @@ first, I want to separate todos from plans
 in a different slice but I just figured out we can`t access a slice in another slice.
 in the end, todos were very tight and specific to the plans
 
-# **Project Folder Structure**
+# **Folder Structure**
 
 ### **newly added files and folders got star \* sign in front**
 
@@ -90,3 +92,19 @@ in the end, todos were very tight and specific to the plans
 - types
   - plan.d.ts
   - ...
+
+# **Screen Shots**
+
+## **Mobile**
+
+<img src="https://github.com/nmolaei7878/PartyPlan/assets/130120172/088265a2-84df-45c2-9ab1-9d3422386c4f"  width="250" height="450">
+<img src="https://github.com/nmolaei7878/PartyPlan/assets/130120172/d4df4d23-87ae-4c53-86e0-f07aa28fb315"  width="250" height="450">
+<img src="https://github.com/nmolaei7878/PartyPlan/assets/130120172/fb88da37-62d1-47a6-87c6-bebaaae4c946"  width="250" height="450">
+
+## **Desktop**
+
+<img src="https://github.com/nmolaei7878/PartyPlan/assets/130120172/439babda-0f54-4b7e-91cd-520dcc58b6c9"  width="650" height="350">
+
+<img src="https://github.com/nmolaei7878/PartyPlan/assets/130120172/744cd13e-342b-434b-9628-c30793116ece"  width="650" height="350">
+
+<img src="https://github.com/nmolaei7878/PartyPlan/assets/130120172/996108e4-b1bb-465e-9b52-3848eccc7807"  width="650" height="350">
