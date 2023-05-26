@@ -81,7 +81,7 @@ in the end, todos were very tight and specific to the plans
   - store.ts
   - test
     - plan-slice.test.ts
-    - plan-slice.test.ts
+    - ui-slice.test.ts
   - slices
     - plan-slice.ts
     - ui-slice.ts
