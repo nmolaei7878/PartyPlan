@@ -4,7 +4,7 @@
   - Desktop size got a route indicator
   - Other parts of the UI are responsive now
 - **Test**
-  - Added several unit & component tests using React Testing Library and Jest
+  - Added several component tests using React Testing Library
 - **Readme**
   - Readme got updated using the markup language
 
@@ -12,14 +12,31 @@
 
 ## **PlanSlice**
 
-a Plan object that will fill through the life cycle of creating a plan, purpose was to not modify the original plan Array and keep it untouched.
+initialState includes a `Array<Plan>` and a Plan object that will fill through the life cycle of creating a plan, purpose of having a single plan object was to not modify the original plan Array and keep it untouched.
 
 **how it works:**
 
 - initially newPlan object is undefined
-- next we create a dummy id and initialize all the properties with empty values
-- after that we add user modifications step by step to it.
+
+```typescript
+const plan: Plan | undefined = undefined;
+```
+
+- on add new plan we create a dummy id and initialize all the properties with empty values
+
+```typescript
+      state.newPlan = {
+        id: action.payload,
+        alcohol: "",
+        etc ... }
+```
+
+- after that we add user modifications step by step to the same plan object.
 - in the end we have a full-filled Plan object that we can add to our plan Array.
+
+```typescript
+state.plans.push(state.newPlan);
+```
 
 ## **QAComponent**
 
@@ -37,21 +54,22 @@ to simply access the array plan and show the todos of a plan.
 
 first, I want to separate todos from plans
 in a different slice but I just figured out we can`t access a slice in another slice.
-in the end, todos are very tight to plans
+in the end, todos were very tight and specific to the plans
 
-# **Folder Structure**
+# **Project Folder Structure**
 
-- test
-- assets
+- Test
+
+* assets
   - icons
-- componenets
+* componenets
   - layout
   - shared-ui
-- core
+* core
   - constants
   - hooks
   - util
-- pages
+* pages
   - home
     - componenets
     - home.tsx
@@ -61,10 +79,10 @@ in the end, todos are very tight to plans
   - todo
     - componenets
     - todo.tsx
-- redux
+* redux
   - store.ts
   - plan-slice.ts
   - ui-slice.ts
-- types
+* types
   - plan.d.ts
   - ...
