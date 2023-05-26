@@ -1,5 +1,5 @@
 import store from "../store";
-import { createPlan, updateOccasion, addPlan } from "../plan-slice";
+import { createPlan, updateOccasion, addPlan } from "../slices/plan-slice";
 
 test("create Plan test", () => {
   let state = store.getState().plan;

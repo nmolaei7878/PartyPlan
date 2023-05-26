@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { editTodo, toggleTodo } from "../../../redux/plan-slice";
+import { editTodo, toggleTodo } from "../../../redux/slices/plan-slice";
 
 interface Props {
   todoIndex: number;

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { updateBoradGame } from "../../../redux/plan-slice";
-import { NextButton } from "../../../redux/ui-slice";
+import { updateBoradGame } from "../../../redux/slices/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
 import { KQABoardGames } from "../../../core/constant/KQABoardGames";
 

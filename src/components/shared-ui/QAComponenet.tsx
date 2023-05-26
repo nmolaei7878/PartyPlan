@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useAppSelector } from "../../core/hook/hooks";
-import { PlanKey } from "../../redux/plan-slice";
+import { PlanKey } from "../../redux/slices/plan-slice";
 
 interface QAComponenetPorps {
   data: KQA;

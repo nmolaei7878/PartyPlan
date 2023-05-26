@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import planSlice from "./plan-slice";
+import planSlice from "./slices/plan-slice";
 import {
   persistReducer,
   FLUSH,
@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import uiSlice from "./ui-slice";
+import uiSlice from "./slices/ui-slice";
 
 const persistConfig = {
   key: "root",

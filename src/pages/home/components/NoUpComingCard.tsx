@@ -1,9 +1,9 @@
 import React from "react";
 import Sayl from "../../../assets/icons/sayl.svg";
 import { useNavigate } from "react-router-dom";
-import { createPlan, resetPlan } from "../../../redux/plan-slice";
+import { createPlan, resetPlan } from "../../../redux/slices/plan-slice";
 import { useAppDispatch } from "../../../core/hook/hooks";
-import { NextButton, resetStteper } from "../../../redux/ui-slice";
+import { NextButton, resetStteper } from "../../../redux/slices/ui-slice";
 
 const NoUpComingCard = () => {
   const navigate = useNavigate();

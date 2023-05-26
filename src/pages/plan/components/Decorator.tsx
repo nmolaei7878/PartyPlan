@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { KQADecorator } from "../../../core/constant/KQADecorator";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { NextButton } from "../../../redux/ui-slice";
-import { updateDecorator } from "../../../redux/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
+import { updateDecorator } from "../../../redux/slices/plan-slice";
 
 const Decorator = () => {
   const memoizeKQADecorator = useMemo(() => KQADecorator, []);

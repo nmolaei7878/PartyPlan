@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { KQAInvite } from "../../../core/constant/KQAInvite";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { updateInvite } from "../../../redux/plan-slice";
-import { NextButton } from "../../../redux/ui-slice";
+import { updateInvite } from "../../../redux/slices/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
 
 const Invite = () => {

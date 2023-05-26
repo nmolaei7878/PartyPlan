@@ -1,5 +1,5 @@
 import store from "../store";
-import { addToStteper, removeFromStteper } from "../ui-slice";
+import { addToStteper, removeFromStteper } from "../slices/ui-slice";
 
 test("add To Stteper", () => {
   let state = store.getState().ui;

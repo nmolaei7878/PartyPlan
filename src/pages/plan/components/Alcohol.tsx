@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { NextButton } from "../../../redux/ui-slice";
-import { updateAlcohol } from "../../../redux/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
+import { updateAlcohol } from "../../../redux/slices/plan-slice";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
 import { KQAAlcohol } from "../../../core/constant/KQAAlcohol";
 

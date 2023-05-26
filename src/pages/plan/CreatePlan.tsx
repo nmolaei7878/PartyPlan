@@ -6,8 +6,8 @@ import {
   NextButton,
   addToStteper,
   removeFromStteper,
-} from "../../redux/ui-slice";
-import { addPlan, resetPlan } from "../../redux/plan-slice";
+} from "../../redux/slices/ui-slice";
+import { addPlan, resetPlan } from "../../redux/slices/plan-slice";
 import HeaderCreatePlan from "../../components/shared-ui/HeaderCreatePlan";
 import NextButtonCreatePlan from "../../components/shared-ui/NextButtonCreatePlan";
 

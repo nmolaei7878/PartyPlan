@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { KOccasion } from "../../../core/constant/KOccasion";
 import Tile from "../../../components/shared-ui/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { updateOccasion } from "../../../redux/plan-slice";
-import { NextButton } from "../../../redux/ui-slice";
+import { updateOccasion } from "../../../redux/slices/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
 
 const Occasion = () => {
   const memoizeOcassion = useMemo(() => KOccasion, []);

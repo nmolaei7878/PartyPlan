@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useAppDispatch } from "../../../core/hook/hooks";
-import { addTodo } from "../../../redux/plan-slice";
+import { addTodo } from "../../../redux/slices/plan-slice";
 
 interface Props {
   planIndex: number;

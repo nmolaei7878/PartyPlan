@@ -6,8 +6,8 @@ import {
   updateEventName,
   updateEventTime,
   updateEventbudget,
-} from "../../../redux/plan-slice";
-import { NextButton } from "../../../redux/ui-slice";
+} from "../../../redux/slices/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
 import { debounce } from "../../../core/util/debounce";
 
 const EventComp = () => {

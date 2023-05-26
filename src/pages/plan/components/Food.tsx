@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { KQAFood } from "../../../core/constant/KQAFood";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
-import { updateFood } from "../../../redux/plan-slice";
-import { NextButton } from "../../../redux/ui-slice";
+import { updateFood } from "../../../redux/slices/plan-slice";
+import { NextButton } from "../../../redux/slices/ui-slice";
 import QAComponenet from "../../../components/shared-ui/QAComponenet";
 
 const Food = () => {
