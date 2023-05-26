@@ -1,4 +1,4 @@
-import store from "../store";
+import { setupStore } from "../store";
 import {
   createPlan,
   updateOccasion,
@@ -11,6 +11,7 @@ import {
   addPlan,
 } from "../slices/plan-slice";
 
+const store = setupStore();
 test("create Plan test", () => {
   let state = store.getState().plan;
   expect(state.newPlan).toEqual(undefined);

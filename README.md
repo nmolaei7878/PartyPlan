@@ -60,38 +60,50 @@ in the end, todos were very tight and specific to the plans
 
 # **Folder Structure**
 
-### **newly added files and folders got star \* sign in front**
-
-- assets
-  - icons
-- componenets
-  - layout
-  - shared-ui
-- core
-  - constants
-  - hooks
-  - util
-- pages
-  - home
-    - componenets
-    - home.tsx
-  - plan
-    - componenets
-    - plan.tsx
-  - todo
-    - componenets
-    - todo.tsx
-- redux
-  - store.ts
-  - **test \***
-    - **plan-slice.test.ts \***
-    - **ui-slice.test.ts \***
-  - **slices \***
-    - plan-slice.ts
-    - ui-slice.ts
-- types
-  - plan.d.ts
-  - ...
+```
+src
+ ┣ assets
+ ┃ ┣ icons
+ ┃ ┃
+ ┣ components
+ ┃ ┣ layout
+ ┃ ┗ shared-ui
+ ┃ ┃
+ ┣ core
+ ┃ ┣ constant
+ ┃ ┣ hook
+ ┃ ┗ util
+ ┃ ┃
+ ┣ pages
+ ┃ ┣ Home
+ ┃ ┃ ┣ test
+ ┃ ┃ ┣ components
+ ┃ ┃ ┗ home.tsx
+ ┃ ┣ plan
+ ┃ ┃ ┣ test
+ ┃ ┃ ┣ components
+ ┃ ┃ ┗ CreatePlan.tsx
+ ┃ ┗ todo
+ ┃ ┃ ┣ test
+ ┃ ┃ ┣ components
+ ┃ ┃ ┗ Todo.tsx
+ ┃ ┃
+ ┣ redux
+ ┃ ┣ test
+ ┃ ┃ ┣ plan-slice.test.ts
+ ┃ ┃ ┗ ui-slice.test.ts
+ ┃ ┣ slices
+ ┃ ┃ ┣ plan-slice.ts
+ ┃ ┃ ┗ ui-slice.ts
+ ┃ ┃
+ ┃ ┗ store.ts
+ ┃ ┃
+ ┣ types
+ ┃ ┣ plan.d.ts
+ ┃ ┣ etc ...
+ ┃ ┃
+ ┗ App.tsx
+```
 
 # **Screen Shots**
 

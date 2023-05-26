@@ -1,5 +1,7 @@
-import store from "../store";
+import { setupStore } from "../store";
 import { addToStteper, removeFromStteper } from "../slices/ui-slice";
+
+const store = setupStore();
 
 test("add To Stteper", () => {
   let state = store.getState().ui;

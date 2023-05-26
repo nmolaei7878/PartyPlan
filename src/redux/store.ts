@@ -1,5 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import planSlice from "./slices/plan-slice";
+import {
+  configureStore,
+  combineReducers,
+  PreloadedState,
+} from "@reduxjs/toolkit";
 import {
   persistReducer,
   FLUSH,
@@ -9,9 +12,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import uiSlice from "./slices/ui-slice";
+import planSlice from "./slices/plan-slice";
 
 const persistConfig = {
   key: "root",
@@ -19,24 +22,27 @@ const persistConfig = {
   storage,
 };
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   plan: planSlice,
   ui: uiSlice,
 });
-const persistedReducer = persistReducer(persistConfig, reducer);
 
-const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-  devTools: true,
-});
+export function setupStore(preloadedState?: PreloadedState<RootState>) {
+  return configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }),
+    preloadedState,
+    devTools: true,
+  });
+}
 
-export default store;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore["dispatch"];
