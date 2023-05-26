@@ -4,7 +4,7 @@
   - Desktop size got a route indicator
   - Other parts of the UI are responsive now
 - **Test**
-  - Added several tests
+  - Added several Unit Tests
 - **Readme**
   - Readme got updated using the markup language
 
