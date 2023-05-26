@@ -4,7 +4,7 @@
   - Desktop size got a route indicator
   - Other parts of the UI are responsive now
 - **Test**
-  - Added several component tests using React Testing Library
+  - Added several tests
 - **Readme**
   - Readme got updated using the markup language
 
@@ -58,18 +58,16 @@ in the end, todos were very tight and specific to the plans
 
 # **Project Folder Structure**
 
-- Test
-
-* assets
+- assets
   - icons
-* componenets
+- componenets
   - layout
   - shared-ui
-* core
+- core
   - constants
   - hooks
   - util
-* pages
+- pages
   - home
     - componenets
     - home.tsx
@@ -79,10 +77,14 @@ in the end, todos were very tight and specific to the plans
   - todo
     - componenets
     - todo.tsx
-* redux
+- redux
   - store.ts
-  - plan-slice.ts
-  - ui-slice.ts
-* types
+  - test
+    - plan-slice.test.ts
+    - plan-slice.test.ts
+  - slices
+    - plan-slice.ts
+    - ui-slice.ts
+- types
   - plan.d.ts
   - ...
