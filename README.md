@@ -13,15 +13,25 @@
 
 ---
 
-## **(27, May,2023)**
+## **(28, May,2023)**
 
 - **Performance**
-  - perevent re-rendering using React Dev Tools.
-    - All the lists item on selection,
-    - Next Button,
-    - Header Stepper.
+- Prevent re-rendering using React Dev Tools.
+
+  - List items on selection,
+  - Next Button,
+  - Header Stepper,
+  - Route Indicator.
+
+- **Hooks** refactor functions and turn them into the hook
+
+  - useDiffrenceDateTime
+  - useNextStep
+  - usePlanSeperator
+
 - **Component Structure**
-  - create a new component and a data type for guest and occasion pages, that use the similar implementation like other create-plan outlets ( question+answer)
+
+  - create a new component and a data type for guest and occasion pages, that uses a similar implementation to the other create-plan outlets ( question+answer)
 
 ---
 
