@@ -15,8 +15,7 @@
 
 ## **(28, May,2023)**
 
-- **Performance**
-- Prevent re-rendering using React Dev Tools.
+- **Performance** Prevent re-rendering using React Dev Tools.
 
   - List items on selection,
   - Next Button,
