@@ -1,17 +1,16 @@
-import React, { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import KPlanRouteNames from "../../core/constant/KRouteNames";
 import { useAppDispatch, useAppSelector } from "../../core/hook/hooks";
-import {
-  NextButton,
-  addToStteper,
-  removeFromStteper,
-} from "../../redux/slices/ui-slice";
 import { addPlan, resetPlan } from "../../redux/slices/plan-slice";
 import HeaderCreatePlan from "../../components/shared-ui/HeaderCreatePlan";
 import NextButtonCreatePlan from "../../components/shared-ui/NextButtonCreatePlan";
 import useNextStep from "../../core/hook/nexstep";
 import RouteIndicator from "../../components/shared-ui/RouteIndicator";
+import {
+  NextButton,
+  addToStteper,
+  removeFromStteper,
+} from "../../redux/slices/ui-slice";
 
 const CreatePlan = () => {
   const history = useLocation();
@@ -20,6 +19,7 @@ const CreatePlan = () => {
   const plans = useAppSelector((state) => state.plan);
   const ui = useAppSelector((state) => state.ui);
   const pathName = history.pathname.split("/").at(-1);
+
   useEffect(
     useCallback(() => {
       window.onpopstate = () => {
@@ -40,8 +40,8 @@ const CreatePlan = () => {
   }, []);
 
   const router = useNextStep(pathName!);
-
-  const onCLickNext = () => {
+  console.log(router);
+  const onCLickNext = useCallback(() => {
     if (ui.next) {
       if (router === "home") {
         dispatch(addPlan());
@@ -53,7 +53,7 @@ const CreatePlan = () => {
       dispatch(addToStteper());
       navigate(router);
     }
-  };
+  }, [ui.next, router]);
 
   return (
     <div className="h-full w-full text-white text-lg font-bold lg:flex min-h-screen lg:gap-5">
