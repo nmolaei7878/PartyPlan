@@ -3,6 +3,7 @@ import Saly2 from "../../../assets/icons/Saly2.svg";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import TodoCount from "../../../components/shared-ui/TodoCount";
+import useDiffrenceDateTime from "../../../core/hook/dateTime";
 
 interface Props {
   plan: Plan;
@@ -10,9 +11,7 @@ interface Props {
 }
 
 const UpComingCard: React.FC<Props> = ({ plan, index }) => {
-  const diffrenceDays = useMemo(() => {
-    return new Date(plan.eventDate).getDate() - new Date().getDate();
-  }, [plan]);
+  const diffrenceDays = useDiffrenceDateTime(plan.eventDate);
 
   const navigate = useNavigate();
   const goToTodo = () => {
