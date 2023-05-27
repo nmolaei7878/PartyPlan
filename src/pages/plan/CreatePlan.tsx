@@ -10,6 +10,7 @@ import {
 import { addPlan, resetPlan } from "../../redux/slices/plan-slice";
 import HeaderCreatePlan from "../../components/shared-ui/HeaderCreatePlan";
 import NextButtonCreatePlan from "../../components/shared-ui/NextButtonCreatePlan";
+import useNextStep from "../../core/hook/nexstep";
 
 const CreatePlan = () => {
   const history = useLocation();
@@ -37,55 +38,21 @@ const CreatePlan = () => {
     }
   }, []);
 
-  const nextStep = useCallback(() => {
-    dispatch(NextButton(false));
-    dispatch(addToStteper());
-    switch (pathName) {
-      case KPlanRouteNames.Occasion:
-        navigate(KPlanRouteNames.Guest);
-        break;
+  const router = useNextStep(pathName!);
 
-      case KPlanRouteNames.Guest:
-        navigate(KPlanRouteNames.Event);
-        break;
-
-      case KPlanRouteNames.Event:
-        navigate(KPlanRouteNames.Invite);
-        break;
-
-      case KPlanRouteNames.Invite:
-        navigate(KPlanRouteNames.Food);
-        break;
-
-      case KPlanRouteNames.Food:
-        navigate(KPlanRouteNames.Alcohol);
-        break;
-
-      case KPlanRouteNames.Alcohol:
-        navigate(KPlanRouteNames.Decorator);
-        break;
-
-      case KPlanRouteNames.Decorator:
-        navigate(KPlanRouteNames.Rent);
-        break;
-
-      case KPlanRouteNames.Rent:
+  const onCLickNext = () => {
+    if (ui.next) {
+      if (router === "home") {
         dispatch(addPlan());
         dispatch(resetPlan());
-        navigate("/", { replace: true });
-        break;
-
-      default:
-        navigate("/", { replace: true });
-        break;
+        navigate("/home", { replace: true });
+        return;
+      }
+      dispatch(NextButton(false));
+      dispatch(addToStteper());
+      navigate(router);
     }
-  }, [history.pathname]);
-
-  const onCLickNext = useCallback(() => {
-    if (ui.next) {
-      nextStep();
-    }
-  }, [ui]);
+  };
 
   const routeIndicator = useMemo(() => {
     let routeList = [];
