@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { useAppSelector } from "../../core/hook/hooks";
 import { PlanKey } from "../../redux/slices/plan-slice";
+import QaComponentHeader from "./QaComponentHeader";
 
 interface QAComponenetPorps {
   data: KQA;
@@ -17,10 +18,7 @@ const QAComponenet: React.FC<QAComponenetPorps> = ({
 
   return (
     <div className="flex flex-col mt-5 gap-5">
-      <div className="flex flex-col items-center">
-        <img src={data.icon} alt="" />
-      </div>
-      <p>{data.question}</p>
+      <QaComponentHeader icon_path={data.icon} question={data.question} />
       {data.answers.map((e) => (
         <button
           key={e}
