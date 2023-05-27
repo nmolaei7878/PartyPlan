@@ -1,4 +1,4 @@
-type KQAIconType = {
+type KQAIconAnswerType = {
   desription?: string;
   title: string;
   iconPath: string;
@@ -8,5 +8,5 @@ type KQAIconType = {
 
 type KQAIcon = {
   question: string;
-  answers: Array<KQAIconType>;
+  answers: Array<KQAIconAnswerType>;
 };
