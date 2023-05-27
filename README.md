@@ -16,9 +16,12 @@
 ## **(27, May,2023)**
 
 - **Performance**
-  - perevent re-rendering the list items on selection, Next Button and Header Stepper using React Dev Tools.
-- **Structure**
-  - create a new componenet for guest and occasion pages, that uses similar data structure like other create-plan outlets ( question+answer)
+  - perevent re-rendering using React Dev Tools.
+    - All the lists item on selection,
+    - Next Button,
+    - Header Stepper.
+- **Component Structure**
+  - create a new component and a data type for guest and occasion pages, that use the similar implementation like other create-plan outlets ( question+answer)
 
 ---
 
