@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const usePlanHook = (planList: Array<Plan>) => {
+const usePlanSeperator = (planList: Array<Plan>) => {
   const [pervPlans, setPervPlans] = useState(Array<Plan>);
   const [upComingPlans, setUpComingPlans] = useState(Array<Plan>);
 
@@ -30,4 +30,4 @@ const usePlanHook = (planList: Array<Plan>) => {
   return { pervPlans, upComingPlans };
 };
 
-export default usePlanHook;
+export default usePlanSeperator;

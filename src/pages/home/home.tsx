@@ -3,12 +3,12 @@ import Header from "./components/Header";
 import { useAppSelector } from "../../core/hook/hooks";
 import NoUpComingCard from "./components/NoUpComingCard";
 import PervListTile from "./components/PervListTile";
-import usePlanHook from "../../core/hook/planhook";
+import usePlanSeperator from "../../core/hook/planSeperator";
 
 const HomePage = () => {
   const plans = useAppSelector((state) => state.plan);
 
-  const { pervPlans, upComingPlans } = usePlanHook(plans.plans);
+  const { pervPlans, upComingPlans } = usePlanSeperator(plans.plans);
 
   return (
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
