@@ -11,6 +11,7 @@ import { addPlan, resetPlan } from "../../redux/slices/plan-slice";
 import HeaderCreatePlan from "../../components/shared-ui/HeaderCreatePlan";
 import NextButtonCreatePlan from "../../components/shared-ui/NextButtonCreatePlan";
 import useNextStep from "../../core/hook/nexstep";
+import useRouteIndicator from "../../core/hook/routeIndicator";
 
 const CreatePlan = () => {
   const history = useLocation();
@@ -39,8 +40,11 @@ const CreatePlan = () => {
   }, []);
 
   const router = useNextStep(pathName!);
+  console.log("run outside");
 
   const onCLickNext = () => {
+    console.log("run inside");
+
     if (ui.next) {
       if (router === "home") {
         dispatch(addPlan());
@@ -53,24 +57,7 @@ const CreatePlan = () => {
       navigate(router);
     }
   };
-
-  const routeIndicator = useMemo(() => {
-    let routeList = [];
-
-    for (const key in KPlanRouteNames) {
-      if (pathName !== key.toLowerCase()) {
-        routeList.push(<div className={`text-gray-500 px-2 py-1`}>{key}</div>);
-        continue;
-      }
-
-      routeList.push(
-        <div className={`px-2 py-2 rounded-md text-white bg-zinc-800`}>
-          {key}
-        </div>
-      );
-    }
-    return routeList;
-  }, [history.pathname]);
+  const routeIndicator = useRouteIndicator(pathName!);
 
   return (
     <div className="h-full w-full text-white text-lg font-bold lg:flex min-h-screen lg:gap-5">

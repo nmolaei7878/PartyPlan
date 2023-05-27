@@ -2,7 +2,8 @@ import KPlanRouteNames from "../constant/KRouteNames";
 import { useEffect, useState } from "react";
 
 const useNextStep = (pathName: string) => {
-  const [goPath, setPath] = useState("");
+  const [goPath, setPath] = useState(pathName);
+
   useEffect(() => {
     switch (pathName) {
       case KPlanRouteNames.Occasion:
