@@ -27,7 +27,7 @@ const ListIconTileButton: React.FC<ListIconTileButtonProps> = ({
               onClick={() => {
                 callBack(e.title);
               }}
-              className="bg-zinc-900 rounded-md flex items-center flex-col justify-center px-2 py-3 "
+              className="bg-zinc-900 rounded-md flex items-center flex-col justify-center px-2 py-3 cursor-pointer"
               style={{
                 border:
                   e.title === plan![keyType as PlanKey]
