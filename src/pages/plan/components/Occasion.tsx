@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { KOccasion } from "../../../core/constant/KOccasion";
-import Tile from "../../../components/shared-ui/Tile";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateOccasion } from "../../../redux/slices/plan-slice";
 import { NextButton } from "../../../redux/slices/ui-slice";
+import ListIconTileButton from "../../../components/shared-ui/ListIconTileButton";
+import { KQAIconOccasion } from "../../../core/constant/KQAIconOccasion";
 
 const Occasion = () => {
-  const memoizeOcassion = useMemo(() => KOccasion, []);
+  const memoizeOcassion = useMemo(() => KQAIconOccasion, []);
   const dispatch = useAppDispatch();
   const plan = useAppSelector((state) => state.plan.newPlan);
 
@@ -22,29 +22,11 @@ const Occasion = () => {
   }, []);
 
   return (
-    <>
-      <p className="mt-4 ">What is the Occasion?</p>
-      <div className="grid grid-cols-3 w-full gap-3 mt-4">
-        {memoizeOcassion.map((e) => {
-          return (
-            <Tile
-              style={
-                e.title === plan?.occasion
-                  ? ({
-                      backgroundColor: e.bg_color,
-                      border: `1px solid ${e.bo_color}`,
-                    } as SelectedStyle)
-                  : ({} as SelectedStyle)
-              }
-              onClick={addOccasion}
-              icon={e.iconPath}
-              title={e.title}
-              key={e.iconPath}
-            />
-          );
-        })}
-      </div>
-    </>
+    <ListIconTileButton
+      callBack={addOccasion}
+      data={memoizeOcassion}
+      keyType="occasion"
+    />
   );
 };
 

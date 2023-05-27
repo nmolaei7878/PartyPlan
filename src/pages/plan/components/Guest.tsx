@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useMemo } from "react";
-import Tile from "../../../components/shared-ui/Tile";
-import { KGuest } from "../../../core/constant/KGuest";
+import { useCallback, useEffect, useMemo } from "react";
+import { KQAIconGuest } from "../../../core/constant/KQAIconGuest";
 import { useAppDispatch, useAppSelector } from "../../../core/hook/hooks";
 import { updateGuest } from "../../../redux/slices/plan-slice";
 import { NextButton } from "../../../redux/slices/ui-slice";
+import ListIconTileButton from "../../../components/shared-ui/ListIconTileButton";
 
 const Guest = () => {
-  const memoizeKGuest = useMemo(() => KGuest, []);
+  const memoizeKGuest = useMemo(() => KQAIconGuest, []);
   const plan = useAppSelector((state) => state.plan.newPlan);
   const dispatch = useAppDispatch();
 
@@ -22,29 +22,11 @@ const Guest = () => {
   }, []);
 
   return (
-    <>
-      <p className="mt-4">What is the size of the guest list?</p>
-      <div className="grid grid-cols-3 w-full gap-3 mt-4">
-        {memoizeKGuest.map((e) => (
-          <Tile
-            style={
-              e.title === plan?.guestSize
-                ? ({
-                    backgroundColor: e.bg_color,
-                    border: `1px solid ${e.bo_color}`,
-                  } as SelectedStyle)
-                : ({} as SelectedStyle)
-            }
-            onClick={addGuestSize}
-            icon={e.iconPath}
-            title={e.title}
-            description={e.desription}
-            key={e.iconPath}
-            height="9rem"
-          />
-        ))}
-      </div>
-    </>
+    <ListIconTileButton
+      callBack={addGuestSize}
+      data={memoizeKGuest}
+      keyType="guestSize"
+    />
   );
 };
 

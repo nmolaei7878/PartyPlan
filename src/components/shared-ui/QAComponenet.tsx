@@ -5,7 +5,7 @@ import QaComponentHeader from "./QaComponentHeader";
 
 interface QAComponenetPorps {
   data: KQA;
-  callBack: (invite: string) => void;
+  callBack: (value: string) => void;
   keyType: string;
 }
 

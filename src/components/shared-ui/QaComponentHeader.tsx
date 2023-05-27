@@ -1,4 +1,5 @@
 import React from "react";
+import Question from "./Question";
 
 interface QaComponentHeaderPorps {
   question: string;
@@ -15,7 +16,7 @@ const QaComponentHeader: React.FC<QaComponentHeaderPorps> = ({
       <div className="flex flex-col items-center">
         <img src={icon_path} alt="" />
       </div>
-      <p>{question}</p>
+      <Question question={question} />
     </>
   );
 };
