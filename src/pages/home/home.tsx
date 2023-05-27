@@ -4,35 +4,12 @@ import { useAppSelector } from "../../core/hook/hooks";
 import NoUpComingCard from "./components/NoUpComingCard";
 import PervListTile from "./components/PervListTile";
 import { useEffect, useState } from "react";
+import usePlanHook from "../../core/util/planhook";
 
 const HomePage = () => {
   const plans = useAppSelector((state) => state.plan);
 
-  const [pervPlans, setPervPlans] = useState(Array<Plan>);
-  const [upComingPlans, setUpComingPlans] = useState(Array<Plan>);
-
-  useEffect(() => {
-    //check to posibly wrap with useCallBack
-    let pervv = [];
-    let coming = [];
-    // iterate over all plans
-    for (const plan of plans.plans) {
-      const diffrence =
-        new Date(plan.eventDate).getDate() - new Date().getDate();
-      if (diffrence >= 0) {
-        //coming plan
-        coming.push(plan);
-      } else {
-        // passed plan
-        pervv.push(plan);
-      }
-    }
-    coming.sort(function (a, b) {
-      return new Date(a.eventDate).getDate() - new Date(b.eventDate).getDate();
-    });
-    setPervPlans(pervv);
-    setUpComingPlans(coming);
-  }, [plans.plans]);
+  const { pervPlans, upComingPlans } = usePlanHook(plans.plans);
 
   return (
     <div className="text-white font-bold text-xl flex flex-col gap-5 capitalize bg-black max-h-min">
