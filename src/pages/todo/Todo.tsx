@@ -6,7 +6,7 @@ import TodoHeader from "./components/TodoHeader";
 
 const Todo = () => {
   const { state } = useLocation();
-  const { index, diffrenceDays } = state;
+  const { index, diffrenceDays, title } = state;
   const plans = useAppSelector((state) => state.plan);
 
   return (
@@ -14,12 +14,18 @@ const Todo = () => {
       <TodoHeader
         planIndex={index}
         diffrenceDays={diffrenceDays}
-        title={plans.plans[index].eventName}
+        title={title}
       />
 
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {plans.plans[index].todos.map((todo, i) => (
-          <TodoTile todoIndex={i} planIndex={index} key={todo.id} />
+          <TodoTile
+            todoIndex={i}
+            planIndex={index}
+            key={todo.id}
+            defaultCheck={plans.plans[index].todos[i].status}
+            defaultValue={plans.plans[index].todos[i].title}
+          />
         ))}
       </div>
 

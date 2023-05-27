@@ -17,7 +17,11 @@ const UpComingCard: React.FC<Props> = ({ plan, index }) => {
   const navigate = useNavigate();
   const goToTodo = () => {
     navigate(`/todo/${plan.eventName}`, {
-      state: { index: index, diffrenceDays: diffrenceDays },
+      state: {
+        index: index,
+        diffrenceDays: diffrenceDays,
+        title: plan.eventName,
+      },
     });
   };
 

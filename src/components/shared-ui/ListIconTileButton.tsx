@@ -22,7 +22,7 @@ const ListIconTileButton: React.FC<ListIconTileButtonProps> = ({
       <div className="grid grid-cols-3 w-full gap-3 mt-4">
         {data.answers.map((e) => {
           return (
-            <button
+            <div
               key={e.title}
               onClick={() => {
                 callBack(e.title);
@@ -44,7 +44,7 @@ const ListIconTileButton: React.FC<ListIconTileButtonProps> = ({
               />
               <p className="px-2 capitalize text-[0.95rem] ">{e.title}</p>
               <p className="text-[0.7rem] font-light">{e.desription}</p>
-            </button>
+            </div>
           );
         })}
       </div>

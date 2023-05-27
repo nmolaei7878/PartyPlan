@@ -5,10 +5,16 @@ import { editTodo, toggleTodo } from "../../../redux/slices/plan-slice";
 interface Props {
   todoIndex: number;
   planIndex: number;
+  defaultCheck: boolean;
+  defaultValue: string;
 }
-const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
+const TodoTile: React.FC<Props> = ({
+  planIndex,
+  todoIndex,
+  defaultCheck,
+  defaultValue,
+}) => {
   const dispatch = useAppDispatch();
-  const plans = useAppSelector((state) => state.plan);
   const titleRef = useRef<any>(null);
 
   const handleCheckBox = (e: any) => {
@@ -37,7 +43,7 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
   return (
     <div className="bg-zinc-800 p-3 rounded-md flex gap-3">
       <input
-        defaultChecked={plans.plans[planIndex].todos[todoIndex].status ?? false}
+        defaultChecked={defaultCheck}
         id="myinput"
         type="checkbox"
         className=""
@@ -48,7 +54,7 @@ const TodoTile: React.FC<Props> = ({ planIndex, todoIndex }) => {
         tabIndex={-1}
         onKeyDown={handleInput}
         className="bg-transparent border-transparent focus:outline-none w-full"
-        defaultValue={plans.plans[planIndex].todos[todoIndex].title ?? ""}
+        defaultValue={defaultValue}
       />
     </div>
   );
