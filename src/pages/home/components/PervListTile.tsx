@@ -20,4 +20,4 @@ const PervListTile: React.FC<Props> = ({ iconPath, title, date, time }) => {
   );
 };
 
-export default React.memo(PervListTile);
+export default PervListTile;

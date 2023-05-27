@@ -43,4 +43,4 @@ const UpComingCard: React.FC<Props> = ({ plan, index }) => {
   );
 };
 
-export default React.memo(UpComingCard);
+export default UpComingCard;
