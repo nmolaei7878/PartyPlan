@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import IconTileButton from "./IconTileButton";
 import { useAppSelector } from "../../core/hook/hooks";
 import { PlanKey } from "../../redux/slices/plan-slice";
 import Question from "./Question";
@@ -16,30 +15,36 @@ const ListIconTileButton: React.FC<ListIconTileButtonProps> = ({
   keyType,
 }) => {
   const plan = useAppSelector((state) => state.plan.newPlan);
-  const click = useCallback((e: string) => {
-    callBack(e);
-  }, []);
+
   return (
     <>
       <Question question={data.question} />
       <div className="grid grid-cols-3 w-full gap-3 mt-4">
         {data.answers.map((e) => {
           return (
-            <IconTileButton
-              style={
-                e.title === plan![keyType as PlanKey]
-                  ? ({
-                      backgroundColor: e.bg_color,
-                      border: `1px solid ${e.bo_color}`,
-                    } as SelectedStyle)
-                  : ({} as SelectedStyle)
-              }
-              description={e.desription}
-              onClick={click}
-              icon={e.iconPath}
-              title={e.title}
-              key={e.iconPath}
-            />
+            <button
+              key={e.title}
+              onClick={() => {
+                callBack(e.title);
+              }}
+              className="bg-zinc-900 rounded-md flex items-center  flex-col justify-center px-2 py-3"
+              style={{
+                border:
+                  e.title === plan![keyType as PlanKey]
+                    ? `1px solid ${e.bo_color}`
+                    : "",
+                backgroundColor:
+                  e.title === plan![keyType as PlanKey] ? `${e.bg_color}` : "",
+              }}
+            >
+              <img
+                className="h-5/6 w-5/6 sm:w-4/6 sm:h-4/6 md:h-3/6 md:w-3/6 min-[470px]:w-4/6 min-[631px]:w-3/6 px-3 "
+                src={e.iconPath}
+                alt=""
+              />
+              <p className="px-2 capitalize text-[0.95rem] ">{e.title}</p>
+              <p className="text-[0.7rem] font-light">{e.desription}</p>
+            </button>
           );
         })}
       </div>
