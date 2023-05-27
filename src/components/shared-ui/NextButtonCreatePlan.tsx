@@ -22,4 +22,4 @@ const NextButtonCreatePlan: React.FC<Props> = ({ onCLickNext }) => {
   );
 };
 
-export default NextButtonCreatePlan;
+export default React.memo(NextButtonCreatePlan);

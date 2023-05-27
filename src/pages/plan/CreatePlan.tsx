@@ -81,11 +81,11 @@ const CreatePlan = () => {
     }
   }, [history.pathname]);
 
-  const onCLickNext = () => {
+  const onCLickNext = useCallback(() => {
     if (ui.next) {
       nextStep();
     }
-  };
+  }, [ui]);
 
   const routeIndicator = useMemo(() => {
     let routeList = [];
