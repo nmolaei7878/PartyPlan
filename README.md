@@ -6,7 +6,8 @@
   - Desktop size got a route indicator
   - Other parts of the UI are responsive now
 - **Test**
-  - Added Some Unit Tests
+  - Added Some Unit Tests for Reducers
+  - learn and adding components test progressively
 - **Readme**
   - Readme got updated using the markup language
 
@@ -80,11 +81,9 @@ src
  ┃ ┃ ┣ components
  ┃ ┃ ┗ home.tsx
  ┃ ┣ plan
- ┃ ┃ ┣ test
  ┃ ┃ ┣ components
  ┃ ┃ ┗ CreatePlan.tsx
  ┃ ┗ todo
- ┃ ┃ ┣ test
  ┃ ┃ ┣ components
  ┃ ┃ ┗ Todo.tsx
  ┃ ┃
