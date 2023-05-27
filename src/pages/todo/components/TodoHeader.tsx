@@ -24,7 +24,7 @@ const TodoHeader: React.FC<Props> = ({ planIndex, diffrenceDays, title }) => {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-1 mt-4 justify-between items-center">
         <div className="sm:translate-x-1/2 sm:right-1/2 sm:absolute">
-          <p className=" text-lg">{title}</p>
+          <p className="text-lg capitalize">{title}</p>
           <p className="mt-2 text-sm mb-3 font-normal">{`${diffrenceDays} days to go`}</p>
         </div>
 
