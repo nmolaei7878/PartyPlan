@@ -3,8 +3,7 @@ import Header from "./components/Header";
 import { useAppSelector } from "../../core/hook/hooks";
 import NoUpComingCard from "./components/NoUpComingCard";
 import PervListTile from "./components/PervListTile";
-import { useEffect, useState } from "react";
-import usePlanHook from "../../core/util/planhook";
+import usePlanHook from "../../core/hook/planhook";
 
 const HomePage = () => {
   const plans = useAppSelector((state) => state.plan);
