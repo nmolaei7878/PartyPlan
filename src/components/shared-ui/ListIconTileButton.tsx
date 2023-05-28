@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useAppSelector } from "../../core/hook/hooks";
 import { PlanKey } from "../../redux/slices/plan-slice";
 import Question from "./Question";
@@ -17,7 +17,7 @@ const ListIconTileButton: React.FC<ListIconTileButtonProps> = ({
   const plan = useAppSelector((state) => state.plan.newPlan);
 
   return (
-    <>
+    <div>
       <Question question={data.question} />
       <div className="grid grid-cols-3 w-full gap-3 mt-4">
         {data.answers.map((e) => {
@@ -48,7 +48,7 @@ const ListIconTileButton: React.FC<ListIconTileButtonProps> = ({
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

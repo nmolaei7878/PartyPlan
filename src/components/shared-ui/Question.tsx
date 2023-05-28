@@ -5,7 +5,7 @@ interface QuestionProps {
 }
 
 const Question: React.FC<QuestionProps> = ({ question }) => {
-  return <div>{question}</div>;
+  return <p>{question}</p>;
 };
 
 export default React.memo(Question);
